@@ -37,18 +37,34 @@ screen journal(page):
                     has hbox
                     spacing 30
 
-                    add 'gui/journal_empty_horizontal.png' yalign 0.5
-                    add 'gui/journal_empty_vertical.png' yalign 0.5
-                    add 'gui/journal_empty_horizontal.png' yalign 0.5
+                    ## Add To Do: Grab keys, grab phone here
+
+                    frame:
+                        style 'journal_horizontal'
+                        if bed.isInteracted:
+                            add 'journal_bed.png' xalign 0.5 ypos -5 
+                    frame:
+                        style 'journal_horizontal'
+                        if oatmeal.isInteracted:
+                            add 'journal_oatmeal.png' xalign 0.5 ypos -5 
 
                 # row 2
                 frame:
                     has hbox
                     spacing 30
 
-                    add 'gui/journal_empty_vertical.png' yalign 0.5
-                    add 'gui/journal_empty_horizontal.png' yalign 0.5
-                    add 'gui/journal_empty_vertical.png' yalign 0.5
+                    frame:
+                        style 'journal_vertical'
+                        if mirror.isInteracted:
+                            add 'journal_mirror.png' xalign 0.5 ypos -3 
+                    frame:
+                        style 'journal_horizontal'
+                        if books.isInteracted:
+                            add 'journal_books.png' xalign 0.5 ypos -5
+                    frame:
+                        style 'journal_vertical'
+                        if keys.isInteracted:
+                            add 'journal_keys.png' xalign 0.5 ypos -3
 
         # page 2
         if journal_page == 2:
@@ -62,18 +78,36 @@ screen journal(page):
                     has hbox
                     spacing 30
 
-                    add 'gui/journal_empty_vertical.png' yalign 0.5
-                    add 'gui/journal_empty_horizontal.png' yalign 0.5
-                    add 'gui/journal_empty_horizontal.png' yalign 0.5
+                    frame:
+                        style 'journal_vertical'
+                        if laundry.isInteracted:
+                            add 'journal_laundry.png' xalign 0.5 ypos -3 
+                    frame:
+                        style 'journal_horizontal'
+                        if phone.isInteracted:
+                            add 'journal_phone.png' xalign 0.5 ypos -5
+                    frame:
+                        style 'journal_horizontal'
+                        if meds.isInteracted:
+                            add 'journal_meds.png' xalign 0.5 ypos -5
 
                 # row 2
                 frame:
                     has hbox
                     spacing 30
 
-                    add 'gui/journal_empty_horizontal.png' yalign 0.5
-                    add 'gui/journal_empty_vertical.png' yalign 0.5
-                    add 'gui/journal_empty_vertical.png' yalign 0.5
+                    frame:
+                        style 'journal_horizontal'
+                        if idCard.isInteracted:
+                            add 'journal_id_card.png' xalign 0.5 ypos -5
+                    frame:
+                        style 'journal_vertical'
+                        if camellia.isInteracted:
+                            add 'journal_camellia.png' xalign 0.5 ypos -3 
+                    frame:
+                        style 'journal_vertical'
+                        if plant_2.isInteracted:
+                            add 'journal_plant2.png' xalign 0.5 ypos -3 
 
         if journal_page == 3:
             frame:
@@ -86,16 +120,32 @@ screen journal(page):
                     has hbox
                     spacing 30
 
-                    add 'gui/journal_empty_horizontal.png' yalign 0.5
-                    add 'gui/journal_empty_vertical.png' yalign 0.5
-                    add 'gui/journal_empty_horizontal.png' yalign 0.5
+                    frame:
+                        style 'journal_horizontal'
+                        if picture.isInteracted:
+                            add 'journal_picture.png' xalign 0.5 ypos -5
+                    frame:
+                        style 'journal_vertical'
+                        if guitar.isInteracted:
+                            add 'journal_guitar.png' xalign 0.5 ypos -3 
+                    frame:
+                        style 'journal_horizontal'
+                        if pc.isInteracted:
+                            add 'journal_computer.png' xalign 0.5 ypos -5
 
                 # row 2
                 frame:
                     has hbox
                     spacing 30
 
-                    add 'gui/journal_empty_vertical.png'
+                    frame:
+                        style 'journal_vertical'
+                        if alyssum.isInteracted:
+                            add 'journal_alyssum.png' xalign 0.5 ypos -3 
+                    frame:
+                        style 'journal_horizontal'
+                        if plant_1.isInteracted:
+                            add 'journal_plant1.png' xalign 0.5 ypos -5
 
 
         ## Buttons to access other pages.
@@ -127,3 +177,15 @@ style journal_frame is empty:
 style journal_label:
     xalign 0.5
     yoffset 25
+
+style journal_horizontal:
+    background Frame('gui/journal_empty_horizontal.png')
+    xsize 398
+    ysize 324 
+    yalign 0.5
+
+style journal_vertical:
+    background Frame('gui/journal_empty_vertical.png')
+    xsize 324
+    ysize 398 
+    yalign 0.5
