@@ -26,6 +26,22 @@ default linger = False
 
 default persistent.playthroughNumber = 1
 default persistent.allRoutesUnlocked = False
+default persistent.keysUnlocked = False
+default persistent.bedUnlocked = False
+default persistent.idCardUnlocked = False
+default persistent.booksUnlocked = False
+default persistent.plant_1Unlocked = False
+default persistent.plant_2Unlocked = False
+default persistent.oatmealUnlocked = False
+default persistent.mirrorUnlocked = False
+default persistent.laundryUnlocked = False
+default persistent.medsUnlocked = False
+default persistent.phoneUnlocked = False
+default persistent.pcUnlocked = False
+default persistent.pictureUnlocked = False
+default persistent.camelliaUnlocked = False
+default persistent.guitarUnlocked = False
+default persistent.alyssumUnlocked = False
 
 #######################################################################################################
 #                                                                                                     #
@@ -978,7 +994,7 @@ label start:
             menu:
                 "Leave":
                     jump endingDecisionBlock
-                    
+
         if necessaryForEnding:
             if currentLocation == "bedmap":
                 call screen bedmap
