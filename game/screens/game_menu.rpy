@@ -26,7 +26,7 @@ screen game_menu(title):
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
                 hover_background Frame(randomizeButton()[1])
-                action ShowMenu("journal") 
+                action ShowMenu("journal", 1) 
                 hovered Play('sound', randomizeAudio())
 
             textbutton _('History').upper(): 
