@@ -25,6 +25,7 @@ default trueEnd = False
 default linger = False
 
 default persistent.playthroughNumber = 1
+default persistent.hasCompletedARoute = False
 default persistent.allRoutesUnlocked = False
 default persistent.keysUnlocked = False
 default persistent.bedUnlocked = False
@@ -269,6 +270,7 @@ label start:
 
     label keys:
         $ keys.isInteracted = True
+        $ persistent.keysUnlocked = True
         $ keys.currentIterationCount += 1
         $ currentLocation = setCurrentLocation(keys)
 
@@ -323,6 +325,7 @@ label start:
             $ itemsInteracted += 1  
            
         $ plant_2.isInteracted = True
+        $ persistent.plant_2Unlocked = True
         $ plant_2.isActive = True
         $ plant_2.currentIterationCount += 1 
 
@@ -362,6 +365,7 @@ label start:
             $ itemsInteracted += 1
            
         $ mirror.isInteracted = True
+        $ persistent.mirrorUnlocked = True
         $ mirror.isActive = True
         $ mirror.currentIterationCount += 1     
 
@@ -398,6 +402,7 @@ label start:
             $ itemsInteracted += 1
            
         $ oatmeal.isInteracted = True
+        $ persistent.oatmealUnlocked = True
         $ oatmeal.isActive = True
         $ oatmeal.currentIterationCount += 1 
 
@@ -436,6 +441,7 @@ label start:
             $ itemsInteracted += 1
            
         $ bed.isInteracted = True
+        $ persistent.bedUnlocked = True
         $ bed.isActive = True
         $ bed.currentIterationCount += 1 
 
@@ -475,6 +481,7 @@ label start:
             $ itemsInteracted += 1
            
         $ books.isInteracted = True
+        $ persistent.booksUnlocked = True
         $ books.isActive = True
         $ books.currentIterationCount += 1 
 
@@ -511,6 +518,7 @@ label start:
             $ itemsInteracted += 1
            
         $ plant_1.isInteracted = True
+        $ persistent.plant_1Unlocked = True
         $ plant_1.isActive = True
         $ plant_1.currentIterationCount += 1 
 
@@ -562,6 +570,7 @@ label start:
             $ itemsInteracted += 1
            
         $ idCard.isInteracted = True
+        $ persistent.idCardUnlocked = True
         $ idCard.isActive = True
         $ idCard.currentIterationCount += 1 
 
@@ -594,6 +603,7 @@ label start:
     label phone:
         $ currentLocation = setCurrentLocation(phone)
         $ phone.isInteracted = True
+        $ persistent.phoneUnlocked = True
         $ phone.isActive = True
         $ phone.currentIterationCount += 1
 
@@ -628,6 +638,7 @@ label start:
                     $ hasPhone = True
                 "No":
                     $ hasPhone = False
+                    
             $ areEndingRequirementsMet = assessRequirements(phone)
             if areEndingRequirementsMet == True:
                 "I have everything I need. Should I leave?"
@@ -658,6 +669,7 @@ label start:
             $ itemsInteracted += 1
            
         $ picture.isInteracted = True
+        $ persistent.pictureUnlocked = True
         $ picture.isActive = True
         $ picture.currentIterationCount += 1 
 
@@ -698,6 +710,7 @@ label start:
             $ itemsInteracted += 1
            
         $ laundry.isInteracted = True
+        $ persistent.laundryUnlocked = True
         $ laundry.isActive = True
         $ laundry.currentIterationCount += 1 
 
@@ -731,6 +744,7 @@ label start:
             $ itemsInteracted += 1
            
         $ pc.isInteracted = True
+        $ persistent.pcUnlocked = True
         $ pc.isActive = True
         $ pc.currentIterationCount += 1
 
@@ -764,6 +778,7 @@ label start:
             $ itemsInteracted += 1
            
         $ meds.isInteracted = True
+        $ persistent.medsUnlocked = True
         $ meds.isActive = True
         $ meds.currentIterationCount += 1
         
@@ -796,6 +811,7 @@ label start:
             $ itemsInteracted += 1
            
         $ guitar.isInteracted = True
+        $ persistent.guitarUnlocked = True
         $ guitar.isActive = True
         $ guitar.currentIterationCount += 1 
 
@@ -852,6 +868,7 @@ label start:
             $ itemsInteracted += 1
            
         $ camellia.isInteracted = True
+        $ persistent.camelliaUnlocked = True
         $ camellia.isActive = True
         $ camellia.currentIterationCount += 1 
 
@@ -901,6 +918,7 @@ label start:
             $ itemsInteracted += 1
            
         $ alyssum.isInteracted = True
+        $ persistent.alyssumUnlocked = True
         $ alyssum.isActive = True
         $ alyssum.currentIterationCount += 1 
 
@@ -1217,6 +1235,7 @@ label start:
             scene endcard b with fade
 
         $ persistent.playthroughNumber += 1
+        $ persistent.hasCompletedARoute = True
 
         pause
 

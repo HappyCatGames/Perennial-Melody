@@ -23,12 +23,6 @@ screen game_menu(title):
             textbutton _('Start').upper() background Frame(randomizeButton()[0]) hover_background Frame(randomizeButton()[1]) action Start() hovered Play('sound', randomizeAudio())
 
         else: 
-            textbutton _('Journal').upper():
-                background Frame(button_bg_list[0][0])
-                hover_background Frame(randomizeButton()[1])
-                action ShowMenu("journal", 1) 
-                hovered Play('sound', randomizeAudio())
-
             textbutton _('History').upper(): 
                 background Frame(button_bg_list[1][0])
                 hover_background Frame(randomizeButton()[1])
@@ -52,6 +46,19 @@ screen game_menu(title):
             hover_background Frame(randomizeButton()[1]) 
             action ShowMenu("preferences") 
             hovered Play('sound', randomizeAudio())
+
+        if main_menu and persistent.hasCompletedARoute:
+            textbutton _('Journal').upper():
+                background Frame(button_bg_list[0][0])
+                hover_background Frame(randomizeButton()[1])
+                action ShowMenu("journal", 1) 
+                hovered Play('sound', randomizeAudio())
+        elif not main_menu:
+            textbutton _('Journal').upper():
+                background Frame(button_bg_list[0][0])
+                hover_background Frame(randomizeButton()[1])
+                action ShowMenu("journal", 1) 
+                hovered Play('sound', randomizeAudio())
 
         if _in_replay:
 

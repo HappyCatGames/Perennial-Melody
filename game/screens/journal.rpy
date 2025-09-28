@@ -41,11 +41,11 @@ screen journal(page):
 
                     frame:
                         style 'journal_horizontal'
-                        if bed.isInteracted:
+                        if persistent.bedUnlocked:
                             add 'journal_bed.png' xalign 0.5 ypos -5 
                     frame:
                         style 'journal_horizontal'
-                        if oatmeal.isInteracted:
+                        if persistent.oatmealUnlocked:
                             add 'journal_oatmeal.png' xalign 0.5 ypos -5 
 
                 # row 2
@@ -55,15 +55,15 @@ screen journal(page):
 
                     frame:
                         style 'journal_vertical'
-                        if mirror.isInteracted:
+                        if persistent.mirrorUnlocked:
                             add 'journal_mirror.png' xalign 0.5 ypos -3 
                     frame:
                         style 'journal_horizontal'
-                        if books.isInteracted:
+                        if persistent.booksUnlocked:
                             add 'journal_books.png' xalign 0.5 ypos -5
                     frame:
                         style 'journal_vertical'
-                        if keys.isInteracted:
+                        if persistent.keysUnlocked:
                             add 'journal_keys.png' xalign 0.5 ypos -3
 
         # page 2
@@ -80,15 +80,15 @@ screen journal(page):
 
                     frame:
                         style 'journal_vertical'
-                        if laundry.isInteracted:
+                        if persistent.laundryUnlocked:
                             add 'journal_laundry.png' xalign 0.5 ypos -3 
                     frame:
                         style 'journal_horizontal'
-                        if phone.isInteracted:
+                        if persistent.phoneUnlocked:
                             add 'journal_phone.png' xalign 0.5 ypos -5
                     frame:
                         style 'journal_horizontal'
-                        if meds.isInteracted:
+                        if persistent.medsUnlocked:
                             add 'journal_meds.png' xalign 0.5 ypos -5
 
                 # row 2
@@ -98,15 +98,15 @@ screen journal(page):
 
                     frame:
                         style 'journal_horizontal'
-                        if idCard.isInteracted:
+                        if persistent.idCardUnlocked:
                             add 'journal_id_card.png' xalign 0.5 ypos -5
                     frame:
                         style 'journal_vertical'
-                        if camellia.isInteracted:
+                        if persistent.camelliaUnlocked:
                             add 'journal_camellia.png' xalign 0.5 ypos -3 
                     frame:
                         style 'journal_vertical'
-                        if plant_2.isInteracted:
+                        if persistent.plant_2Unlocked:
                             add 'journal_plant2.png' xalign 0.5 ypos -3 
 
         if journal_page == 3:
@@ -122,15 +122,15 @@ screen journal(page):
 
                     frame:
                         style 'journal_horizontal'
-                        if picture.isInteracted:
+                        if persistent.pictureUnlocked:
                             add 'journal_picture.png' xalign 0.5 ypos -5
                     frame:
                         style 'journal_vertical'
-                        if guitar.isInteracted:
+                        if persistent.guitarUnlocked:
                             add 'journal_guitar.png' xalign 0.5 ypos -3 
                     frame:
                         style 'journal_horizontal'
-                        if pc.isInteracted:
+                        if persistent.pcUnlocked:
                             add 'journal_computer.png' xalign 0.5 ypos -5
 
                 # row 2
@@ -140,11 +140,11 @@ screen journal(page):
 
                     frame:
                         style 'journal_vertical'
-                        if alyssum.isInteracted:
+                        if persistent.alyssumUnlocked:
                             add 'journal_alyssum.png' xalign 0.5 ypos -3 
                     frame:
                         style 'journal_horizontal'
-                        if plant_1.isInteracted:
+                        if persistent.plant_1Unlocked:
                             add 'journal_plant1.png' xalign 0.5 ypos -5
 
 
