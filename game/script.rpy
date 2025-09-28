@@ -519,47 +519,6 @@ label start:
                 jump hurryUp
 
         jump bedmapScene  
-
-    label picture:
-        $ currentLocation = setCurrentLocation(picture)
-        if trueEnd == False:
-            if picture.isInteracted == False and itemsInteracted == 5:
-                jump pcmapScene 
-
-        if picture.isInteracted == False and trueEnd == False:
-            $ itemsInteracted += 1
-           
-        $ picture.isInteracted = True
-        $ picture.isActive = True
-        $ picture.currentIterationCount += 1 
-
-        show screen iteration_counter(picture)
-        
-
-        if trueEnd == True:
-            show bg pc bw
-
-        if picture.currentIterationCount == 1:
-            "A polaroid with the members of Setsugekka."  
-            "Natsume on the far left, Hisae Shimozaki after her, Akito, a head shorter than the rest of the girls, and Haruhi in her trademarked and patented boobs and ass pose."
-
-        if picture.currentIterationCount == 2:
-            "A polaroid with the members of Setsugekka." 
-            "You took this picture. The girls were on their way back from practice, each of them hauling their relevant instrument. Except Akito. She had her drumsticks in Natsume's case." 
-            "Natsume had smiled with such an icy intensity that it made the resulting group shot feel a little haunted."
-
-        if picture.currentIterationCount == 3:
-            "A polaroid with the members of Setsugekka. You think about Hisae Shimozaki's expression, perfect cat like grin and sharp teeth. Her eyes are empty. There's nothing there."
-            $ picture.isActive = False
-            $ picture.currentIterationCount = 0
-            if trueEnd:
-                $ itemsInteracted += 1
-
-        if trueEnd == False:
-            jump bedmapScene 
-        if trueEnd == True:
-            hide screen iteration_counter
-            call screen scen3pcmap 
     
     label id:
         $ currentLocation = setCurrentLocation(idCard)
@@ -599,13 +558,6 @@ label start:
             hide screen iteration_counter
             call screen scen3pcmap 
 
-
-    #######################################################################################################
-    #                                                                                                     #
-    #                                          PC SCENE ITEMS                                             #
-    #                                                                                                     #
-    #######################################################################################################
-
     label phone:
         $ currentLocation = setCurrentLocation(phone)
         $ phone.isInteracted = True
@@ -637,7 +589,55 @@ label start:
             if areEndingRequirementsMet == True:
                 jump endingDecisionBlock
 
-        jump bedmapScene 
+        jump bedmapScene         
+
+
+    #######################################################################################################
+    #                                                                                                     #
+    #                                          PC SCENE ITEMS                                             #
+    #                                                                                                     #
+    #######################################################################################################
+
+    label picture:
+        $ currentLocation = setCurrentLocation(picture)
+        if trueEnd == False:
+            if picture.isInteracted == False and itemsInteracted == 5:
+                jump hurryUp 
+
+        if picture.isInteracted == False and trueEnd == False:
+            $ itemsInteracted += 1
+           
+        $ picture.isInteracted = True
+        $ picture.isActive = True
+        $ picture.currentIterationCount += 1 
+
+        show screen iteration_counter(picture)
+        
+
+        if trueEnd == True:
+            show bg pc bw
+
+        if picture.currentIterationCount == 1:
+            "A polaroid with the members of Setsugekka."  
+            "Natsume on the far left, Hisae Shimozaki after her, Akito, a head shorter than the rest of the girls, and Haruhi in her trademarked and patented boobs and ass pose."
+
+        if picture.currentIterationCount == 2:
+            "A polaroid with the members of Setsugekka." 
+            "You took this picture. The girls were on their way back from practice, each of them hauling their relevant instrument. Except Akito. She had her drumsticks in Natsume's case." 
+            "Natsume had smiled with such an icy intensity that it made the resulting group shot feel a little haunted."
+
+        if picture.currentIterationCount == 3:
+            "A polaroid with the members of Setsugekka. You think about Hisae Shimozaki's expression, perfect cat like grin and sharp teeth. Her eyes are empty. There's nothing there."
+            $ picture.isActive = False
+            $ picture.currentIterationCount = 0
+            if trueEnd:
+                $ itemsInteracted += 1
+
+        if trueEnd == False:
+            jump bedmapScene 
+        if trueEnd == True:
+            hide screen iteration_counter
+            call screen scen3pcmap 
 
     label laundry:
         $ currentLocation = setCurrentLocation(laundry)
