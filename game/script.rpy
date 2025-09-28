@@ -22,6 +22,7 @@ default currentLocation = ""
 
 default necessaryForEnding = ""
 default trueEnd = False
+default linger = False
 
 default persistent.playthroughNumber = 1
 default persistent.allRoutesUnlocked = False
@@ -269,7 +270,6 @@ label start:
         if keys.currentIterationCount == 3:
 
             "Your keys. You absolutely cannot leave the house without them."
-            $ hasKeys = True
             $ keys.currentIterationCount = 0
 
             $ areEndingRequirementsMet = assessRequirements(keys)
@@ -278,6 +278,23 @@ label start:
                 jump hurryUp
             if areEndingRequirementsMet == True:
                 jump endingDecisionBlock
+
+        if hasKeys == False:
+            "Take the keys?"
+            menu:
+                "Yes":
+                    $ hasKeys = True
+                "No":
+                    $ hasKeys = False
+            $ areEndingRequirementsMet = assessRequirements(keys)
+            if areEndingRequirementsMet == True:
+                "I have everything I need. Should I leave?"
+                menu:
+                    "Yes":
+                        jump endingDecisionBlock
+                    "No":
+                        "I'll stay and look around a little longer."
+                        $ linger = True
 
         jump bedmapScene
 
@@ -578,7 +595,6 @@ label start:
 
             "That's your phone. You have threads of emails to review before going into the office. You have a dozen unread messages. You have a couple of voicemails."
             "You want to leave your phone on your desk and say you left it at home, but everyone knows that you never leave home without it so it's a fool's errand to pretend."
-            $ hasPhone = True
             $ phone.isActive = False
             $ phone.currentIterationCount = 0
 
@@ -588,6 +604,24 @@ label start:
                 jump hurryUp
             if areEndingRequirementsMet == True:
                 jump endingDecisionBlock
+
+        if hasPhone == False:
+            "Take the phone?"
+            menu:
+                "Yes":
+                    $ hasPhone = True
+                "No":
+                    $ hasPhone = False
+            $ areEndingRequirementsMet = assessRequirements(phone)
+            if areEndingRequirementsMet == True:
+                "I have everything I need. Should I leave?"
+                menu:
+                    "Yes":
+                        jump endingDecisionBlock
+                    "No":
+                        "I'll stay and look around a little longer."
+                        $ linger = False
+                        jump bedmapScene
 
         jump bedmapScene         
 
@@ -906,7 +940,7 @@ label start:
         hide screen iteration_counter
         scene bg bed bw
 
-        if areEndingRequirementsMet == True:
+        if areEndingRequirementsMet == True and linger == False:
             jump endingDecisionBlock
 
         call screen bedmap
@@ -915,7 +949,7 @@ label start:
         hide screen iteration_counter
         scene bg pc bw
 
-        if areEndingRequirementsMet == True:
+        if areEndingRequirementsMet == True and linger == False:
             jump endingDecisionBlock
 
         call screen pcmap
@@ -940,10 +974,16 @@ label start:
 
         KANADE "Hmm... I think I've wasted enough time. I'm cutting it kind of close. I should've been out the door at least five minutes ago... [necessaryForEnding]"
 
-        if currentLocation == "bedmap":
-            call screen bedmap
-        if currentLocation == "pcmap":
-            call screen pcmap   
+        if necessaryForEnding == '':
+            menu:
+                "Leave":
+                    jump endingDecisionBlock
+                    
+        if necessaryForEnding:
+            if currentLocation == "bedmap":
+                call screen bedmap
+            if currentLocation == "pcmap":
+                call screen pcmap   
 
 
     #######################################################################################################

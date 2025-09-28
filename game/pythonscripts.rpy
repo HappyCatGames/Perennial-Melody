@@ -36,7 +36,7 @@ init python:
     button_bg_list = [["gui/button/button_bg_01_idle.png", "gui/button/button_bg_01_hover.png"], ["gui/button/button_bg_02_idle.png", "gui/button/button_bg_02_hover.png"], ["gui/button/button_bg_03_idle.png", "gui/button/button_bg_03_hover.png"], ["gui/button/button_bg_04_idle.png", "gui/button/button_bg_04_hover.png"], ["gui/button/button_bg_05_idle.png", "gui/button/button_bg_05_hover.png"], ["gui/button/button_bg_06_idle.png", "gui/button/button_bg_06_hover.png"],]
     
     def assessRequirements(interactibleItem):
-        if itemsInteracted == 5 and interactibleItem.isActive == False:
+        if itemsInteracted <= 5 and interactibleItem.isActive == False:
             if hasKeys == False or hasPhone == False:
                 return False
             if hasKeys == True and hasPhone == True:
