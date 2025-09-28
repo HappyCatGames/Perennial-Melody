@@ -54,4 +54,7 @@ init python:
     def randomizeButton():
         return renpy.random.choice(button_bg_list)
 
+    def rotation():
+        return renpy.random.randint(-5, 5)
+
                    

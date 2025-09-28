@@ -11,6 +11,10 @@ init python:
         elif currentPage > 1:
             return currentPage - 1
 
+transform rotated:
+    rotate rotation()
+    rotate_pad False
+
 screen journal(page):
     tag menu
     default journal_page = page
@@ -38,6 +42,37 @@ screen journal(page):
                     spacing 30
 
                     ## Add To Do: Grab keys, grab phone here
+                    frame:
+                        style_prefix 'to_do'
+                        at rotated
+                        yoffset 25
+                        has vbox
+                        spacing 45
+                        xalign 0.5
+                        label "To do:" xalign 0.5:
+                            background Frame('gui/button/button_bg_01_idle.png')
+                            xsize 250
+                            text_color '#fff'
+                            text_xalign 0.5
+                            yoffset 25
+                
+                        vbox:
+
+                            spacing 15
+                            hbox:
+                                spacing 10
+                                if hasKeys:
+                                    add "gui/hover_background.png"
+                                else:
+                                    add 'gui/idle_background.png'
+                                text "Get keys"
+                            hbox:
+                                spacing 10
+                                if hasPhone:
+                                    add "gui/hover_background.png"
+                                else:
+                                    add 'gui/idle_background.png'
+                                text "Grab phone"
 
                     frame:
                         style 'journal_horizontal'
@@ -189,3 +224,9 @@ style journal_vertical:
     xsize 324
     ysize 398 
     yalign 0.5
+
+style to_do_frame:
+    padding (50, 60, 50, 60)
+    background Frame("gui/frame.png", 50, 50, 50, 50, tile=False)
+
+style to_do_text is gui_text

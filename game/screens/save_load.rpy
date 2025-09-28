@@ -83,6 +83,7 @@ screen file_slots(title):
                     # This means the player can hover this save
                     # slot and hit delete to delete it
                     key "save_delete" action FileDelete(slot)
+            
 
         ## Buttons to access other pages.
         vbox:
