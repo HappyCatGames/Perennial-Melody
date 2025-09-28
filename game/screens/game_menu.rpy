@@ -16,45 +16,91 @@ screen game_menu(title):
     add "gui/overlay/game_menu.png"
 
     vbox:
-        xpos 45 yalign 0.5
+        xpos 45 yalign 0.5 yoffset 25
         spacing 25
 
         if main_menu:
-            imagebutton auto "gui/button/mm_start_%s.png" action Start() hovered Play('sound', randomizeAudio())
+            textbutton _('Start').upper() background Frame(randomizeButton()[0]) hover_background Frame(randomizeButton()[1]) action Start() hovered Play('sound', randomizeAudio())
 
         else: 
-            imagebutton auto "gui/button/mm_history_%s.png" action ShowMenu("history") hovered Play('sound', randomizeAudio())
+            textbutton _('Journal').upper():
+                background Frame(button_bg_list[0][0])
+                hover_background Frame(randomizeButton()[1])
+                action ShowMenu("journal") 
+                hovered Play('sound', randomizeAudio())
 
-            imagebutton auto "gui/button/mm_save_%s.png" action ShowMenu("save") hovered Play('sound', randomizeAudio())
+            textbutton _('History').upper(): 
+                background Frame(button_bg_list[1][0])
+                hover_background Frame(randomizeButton()[1])
+                action ShowMenu("history") 
+                hovered Play('sound', randomizeAudio())
 
-        imagebutton auto "gui/button/mm_load_%s.png" action ShowMenu("load") hovered Play('sound', randomizeAudio())
+            textbutton _('Save').upper(): 
+                background Frame(button_bg_list[2][0])
+                hover_background Frame(randomizeButton()[1])
+                action ShowMenu("save") 
+                hovered Play('sound', randomizeAudio())
 
-        imagebutton auto "gui/button/mm_prefs_%s.png" action ShowMenu("preferences") hovered Play('sound', randomizeAudio())
+        textbutton _('Load').upper(): 
+            background Frame(button_bg_list[3][0])
+            hover_background Frame(randomizeButton()[1])
+            action ShowMenu("load") 
+            hovered Play('sound', randomizeAudio())
+
+        textbutton _('Preferences').upper():
+            background Frame(button_bg_list[4][0])
+            hover_background Frame(randomizeButton()[1]) 
+            action ShowMenu("preferences") 
+            hovered Play('sound', randomizeAudio())
 
         if _in_replay:
 
-            imagebutton auto "gui/button/mm_endreplay_%s.png" action EndReplay(confirm=True) hovered Play('sound', randomizeAudio())
+            textbutton _('End Replay').upper(): 
+                background Frame(button_bg_list[5][0])
+                hover_background Frame(randomizeButton()[1])
+                action EndReplay(confirm=True) 
+                hovered Play('sound', randomizeAudio())
 
         elif not main_menu:
 
-            imagebutton auto "gui/button/mm_mainmenu_%s.png" action MainMenu() hovered Play('sound', randomizeAudio())
+            textbutton _('Main Menu').upper(): 
+                background Frame(button_bg_list[0][0])
+                hover_background Frame(randomizeButton()[1])
+                action MainMenu() 
+                hovered Play('sound', randomizeAudio())
 
-        imagebutton auto "gui/button/mm_about_%s.png" action ShowMenu("about") hovered Play('sound', randomizeAudio())
+        textbutton _('About').upper(): 
+            background Frame(button_bg_list[1][0])
+            hover_background Frame(randomizeButton()[1])
+            action ShowMenu("about") 
+            hovered Play('sound', randomizeAudio())
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")): 
 
             ## Help isn't necessary or relevant to mobile devices.
-            imagebutton auto "gui/button/mm_help_%s.png" action ShowMenu("help") hovered Play('sound', randomizeAudio())
+            textbutton _('Help').upper():
+                background Frame(button_bg_list[2][0])
+                hover_background Frame(randomizeButton()[1]) 
+                action ShowMenu("help") 
+                hovered Play('sound', randomizeAudio())
 
         if persistent.allRoutesUnlocked == True:
 
-            imagebutton auto "gui/button/credits_%s.png" action Jump("credits") hovered Play('sound', randomizeAudio())
+            textbutton _('Credits').upper(): 
+                background Frame(button_bg_list[3][0])
+                hover_background Frame(randomizeButton()[1])
+                action Jump("credits") 
+                hovered Play('sound', randomizeAudio())
         
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            imagebutton auto "gui/button/mm_quit_%s.png" action Quit(confirm=not main_menu) hovered Play('sound', randomizeAudio())
+            textbutton _('Quit').upper(): 
+                background Frame(button_bg_list[4][0])
+                hover_background Frame(randomizeButton()[1])
+                action Quit(confirm=not main_menu) 
+                hovered Play('sound', randomizeAudio())
     
     imagebutton auto "gui/button/mm_return_%s.png":
         style "return_button"
@@ -98,3 +144,14 @@ style game_menu_label:
 style game_menu_label_text:
     size 100
     align (0.5, 0.5)
+
+style game_menu_button:
+    padding (10, 10)
+    xsize 270
+
+style game_menu_button_text:
+    idle_color '#fff'
+    size 24
+    xalign 0.5
+
+

@@ -14,7 +14,7 @@ label splashscreen():
     with Pause(.5)
     scene happycat_splash with fade
 
-    pause
+    with Pause(1.5)
 
     scene black with fade
     with Pause(.5)

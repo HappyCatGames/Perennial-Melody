@@ -33,6 +33,7 @@ init python:
     alyssum = InteractibleItem("keys", 0, 5, False, False, True, "pcmap")
 
     button_sfx_list = ["audio/pageflip_01.wav", "audio/pageflip_02.wav", "audio/pageflip_03.wav", "audio/pageflip_04.wav"]
+    button_bg_list = [["gui/button/button_bg_01_idle.png", "gui/button/button_bg_01_hover.png"], ["gui/button/button_bg_02_idle.png", "gui/button/button_bg_02_hover.png"], ["gui/button/button_bg_03_idle.png", "gui/button/button_bg_03_hover.png"], ["gui/button/button_bg_04_idle.png", "gui/button/button_bg_04_hover.png"], ["gui/button/button_bg_05_idle.png", "gui/button/button_bg_05_hover.png"], ["gui/button/button_bg_06_idle.png", "gui/button/button_bg_06_hover.png"],]
     
     def assessRequirements(interactibleItem):
         if itemsInteracted == 5 and interactibleItem.isActive == False:
@@ -49,5 +50,8 @@ init python:
 
     def randomizeAudio():
         return renpy.random.choice(button_sfx_list)
+
+    def randomizeButton():
+        return renpy.random.choice(button_bg_list)
 
                    
