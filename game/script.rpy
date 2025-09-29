@@ -271,6 +271,7 @@ label start:
     label keys:
         $ keys.isInteracted = True
         $ persistent.keysUnlocked = True
+        $ keys.isActive = True
         $ keys.currentIterationCount += 1
         $ currentLocation = setCurrentLocation(keys)
 
@@ -296,7 +297,8 @@ label start:
                 jump hurryUp
             if areEndingRequirementsMet == True:
                 jump endingDecisionBlock
-
+        
+        $ keys.isActive = False
         if hasKeys == False:
             "Take the keys?"
             menu:
@@ -631,6 +633,7 @@ label start:
             if areEndingRequirementsMet == True:
                 jump endingDecisionBlock
 
+        $ phone.isActive = False
         if hasPhone == False:
             "Take the phone?"
             menu:
@@ -638,8 +641,8 @@ label start:
                     $ hasPhone = True
                 "No":
                     $ hasPhone = False
-                    
-            $ areEndingRequirementsMet = assessRequirements(phone)
+            $ areEndingRequirementsMet=assessRequirements(phone)
+            $ print(areEndingRequirementsMet)
             if areEndingRequirementsMet == True:
                 "I have everything I need. Should I leave?"
                 menu:
@@ -648,7 +651,6 @@ label start:
                     "No":
                         "I'll stay and look around a little longer."
                         $ linger = False
-                        jump bedmapScene
 
         jump bedmapScene         
 
@@ -1005,6 +1007,8 @@ label start:
             $ necessaryForEnding = "where is my phone?"
         if hasKeys == False and hasPhone == False:
             $ necessaryForEnding = "where are my keys and phone?"
+        if hasKeys == True and hasPhone == True:
+            $ necessaryForEnding = ''
 
         KANADE "Hmm... I think I've wasted enough time. I'm cutting it kind of close. I should've been out the door at least five minutes ago... [necessaryForEnding]"
 
