@@ -20,9 +20,9 @@ screen game_menu(title):
         spacing 25
 
         if main_menu:
-            textbutton _('Start').upper() background Frame(randomizeButton()[0]) hover_background Frame(randomizeButton()[1]) action Start() hovered Play('sound', randomizeAudio())
+            textbutton _('Start').upper() background Frame(button_bg_list[5][0]) hover_background Frame(randomizeButton()[1]) action Start() hovered Play('sound', randomizeAudio())
 
-        else: 
+        if not main_menu: 
             textbutton _('History').upper(): 
                 background Frame(button_bg_list[1][0])
                 hover_background Frame(randomizeButton()[1])
@@ -90,8 +90,8 @@ screen game_menu(title):
                 hover_background Frame(randomizeButton()[1]) 
                 action ShowMenu("help") 
                 hovered Play('sound', randomizeAudio())
-
-        if persistent.allRoutesUnlocked == True:
+        
+        if main_menu and persistent.allRoutesUnlocked == True:
 
             textbutton _('Credits').upper(): 
                 background Frame(button_bg_list[3][0])
