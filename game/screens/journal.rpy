@@ -62,16 +62,16 @@ screen journal(page):
                             hbox:
                                 spacing 10
                                 if hasKeys:
-                                    add "gui/hover_background.png"
+                                    add "gui/button/radio_selected_foreground.png"
                                 else:
-                                    add 'gui/idle_background.png'
+                                    add "gui/button/radio_foreground.png"
                                 text "Get keys"
                             hbox:
                                 spacing 10
                                 if hasPhone:
-                                    add "gui/hover_background.png"
+                                    add "gui/button/radio_selected_foreground.png"
                                 else:
-                                    add 'gui/idle_background.png'
+                                    add "gui/button/radio_foreground.png"
                                 text "Grab phone"
 
                     frame:
@@ -199,7 +199,7 @@ screen journal(page):
                 for page in range(1, 4):
                     textbutton "[page]": 
                         if journal_page == page:
-                            background Frame('gui/hover_background.png') 
+                            background Frame('gui/btn_box_selected.png') 
                             text_color '#fff'
                         action ShowMenu('journal', page) 
                         hovered Play('sound', randomizeAudio())

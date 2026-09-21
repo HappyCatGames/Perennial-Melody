@@ -105,7 +105,7 @@ screen preferences():
 
 ### PREF
 style section_frame:
-    padding (40,10,40,40)
+    padding (40,20,40,50)
     background Frame("gui/frame_plain.png", 50, 50, 50, 50, tile=True)
     xspacing 25
 

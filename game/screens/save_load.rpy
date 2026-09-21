@@ -168,10 +168,13 @@ style page_vbox:
     yalign 1.0
 
 style page_button:
-    padding (15, 10, 15, 10)
+    padding (20, 15, 20, 15)
     xalign 0.5
-    background Frame("gui/idle_background.png", 50, 50, 50, 50, tile=True)
+    background Frame("gui/btn_box_idle.png", 50, 50, 50, 50, tile=True)
+    hover_background Frame("gui/btn_box_hover.png", 50, 50, 50, 50, tile=True)
 
 style page_button_text:
     size 25
+    yoffset -2
+    hover_color '#000'
 
