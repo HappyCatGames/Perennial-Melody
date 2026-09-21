@@ -123,7 +123,7 @@ screen game_menu(title):
         key "game_menu" action ShowMenu("main_menu")
 
 style return_button:
-    xpos 60
+    xpos 45
     yalign 1.0
     yoffset -45
 
