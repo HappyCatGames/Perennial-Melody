@@ -132,16 +132,16 @@ define sample_achievement = Achievement(
 
 ## Example 2 ###################################################################
 define progress_achievement = Achievement(
-    name=_("Progress Achievement"),
-    id="progress_achievement",
-    description=_("This is an achievement with a progress bar."),
+    name=_("Meticulous"),
+    id="meticulous_achievement",
+    description=_("Interact with every item in your room."),
     unlocked_image=Transform("gui/window_icon.png", matrixcolor=InvertMatrix()),
     ## To record progress, you need to specify a stat_max. This means you can
     ## show a progress bar with % completion towards the achievement. It is
     ## useful if, for example, you have an achievement counting how many
     ## chapters the player has completed which unlocks when they have seen all
     ## the chapters.
-    stat_max=12,
+    stat_max=16,
     ## You can also provide a stat_modulo, which means the achievement is only
     ## updated in the Steam backend every time the stat reaches a multiple of
     ## the modulo.
