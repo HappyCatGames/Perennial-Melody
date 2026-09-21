@@ -5,7 +5,8 @@
 #######################################################################################################
 
 define KANADE = Character(_("KANADE"), color="f9f3ea")
-define HISAE = Character(_("HISAE"), color="043349", namebox_background="gui/namebox_hisae.png")
+define HISAE = Character(_("HISAE"), color="043349", namebox_background="gui/namebox_hisae.png", image="hisae")
+image hisae smile = Image("hisae smile.png", xalign=0.2, yalign=0.2)
 define NATSUME = Character(_("NATSUME"), color="f9f3ea", namebox_background="gui/namebox_natsume.png")
 define KANA = Character(_("KANA"), color="f9f3ea")
 define SAE = Character(_("SAE"), color="043349", namebox_background="gui/namebox_hisae.png")
@@ -338,11 +339,11 @@ label start:
             "You actually had to study quite a bit to accommodate all of these plants and make sure they were all taken care of properly." 
             "Sometimes you think that's why Mr. Shimozaki made you Setsugekka's manager. You're good at taking care of people."
 
-            show hisae_portrait
+            show hisae smile
 
             HISAE "Gross. You're such a busybody, Manager-chan."
 
-            hide hisae_portrait
+            hide hisae smile
 
         if plant_2.currentIterationCount == 2:
             "Hyacinth. This is one of your favorites. You have one in purple, one in pink, and one in white." 
@@ -423,12 +424,12 @@ label start:
             "A bowl of oatmeal. You think about the latest Ti*ktok interview that you edited. Setsugekka's \"Firsts and Flops.\"" 
             "Everyone took their part of the interview seriously but when it came to food items, Hisae Shimozaki wouldn't shut up."
 
-            show hisae_portrait
+            show hisae smile
 
             HISAE "My first goes French fries. Perfect potato existence. What isn't there to enjoy." 
             HISAE "My flop? Ugh, oatmeal. Porridge. Anything in between. Gruel has no place in my palate. It should be solid, or it should be soup."
 
-            hide hisae_portrait
+            hide hisae smile
 
             "The clip went viral. She's the 21st century Marie Antoinette. Let them eat over-processed garbage."
 
@@ -848,11 +849,11 @@ label start:
         if guitar.currentIterationCount == 6:
             "That's your guitar. Hisae Shimozaki's chicken scratch signature is still there. She thought she was so sneaky, carving away at your most prized possession. When you told her to give it back, what the hell!, she didn't even blink."
 
-            show hisae_portrait
+            show hisae smile
 
             HISAE "Aren't we going to be rockstars, Kana-chan? Live a little."
 
-            hide hisae_portrait
+            hide hisae smile
 
             "You were twelve."
 
@@ -906,7 +907,7 @@ label start:
             "As if she could embody anything the stupid flower means. Grace? Sophistication? A pig would be better suited." 
             "The studio's photographer has asked her time and time again to get it removed, she's a public figure, for god's sake. And Hisae Shimozaki said, with the authority of a king:"
 
-            show hisae_portrait
+            show hisae smile
 
             HISAE "You can remove it in post."
             
@@ -915,7 +916,7 @@ label start:
 
             HISAE "I'll go back to makeup."
 
-            hide hisae_portrait
+            hide hisae smile
 
         if camellia.currentIterationCount == 4:
             "A winter flower. You can't help yourself when it comes to her."
@@ -1154,7 +1155,7 @@ label start:
 
         KANADE "Shimozaki-san...?"
 
-        show hisae_portrait
+        show hisae smile
 
         HISAE "Huh?"
         "She had dark tinted sunglasses perched on her nose. Her hair was wild and untamed, a mess of long layers and dark roots. She wore hot pants and a flowy chiffon off the shoulder blouse, a thick black belt." 
@@ -1176,7 +1177,7 @@ label start:
         HISAE "I have a lot of things to make up for."
         HISAE "If you will excuse me."
 
-        hide hisae_portrait
+        hide hisae smile
 
         "Even in your best case scenarios, it ends with you standing there, like a stupid idiot."
 
@@ -1203,7 +1204,7 @@ label start:
         "You can see her, with those tinted glasses, pressed against the glass of the café window. You will get up, you will run out, you will leave your belongings in a worn-out booth." 
         "She'll throw her head back, and finally deign to look at you, the beloved priestess to her twisted god."
 
-        show hisae_portrait
+        show hisae smile
         
         HISAE "It's nice to see you doing well."
         KANADE "I can say the same thing to you."
@@ -1231,7 +1232,7 @@ label start:
         HISAE "See you later, Kanade."
         KANADE "See you later, Hisae."
 
-        hide hisae_portrait
+        hide hisae smile
 
         "This sort of pathetic longing."
         "This sort of happy ending. This sort of make-believe story, all of it. It makes you sick."
@@ -1280,7 +1281,7 @@ label start:
 
         "You open the door."
 
-        show hisae_portrait
+        show hisae smile
 
         "Hisae Shimozaki smiles thinly. She's got a set of keys in her hand. Her father's car is in your driveway."
         HISAE "You were running late. Band told me to come get you."
@@ -1296,7 +1297,7 @@ label start:
 
         HISAE "Call next time, Manager-chan."
 
-        hide hisae_portrait
+        hide hisae smile
 
         $ persistent.playthroughNumber += 1
         $ persistent.allRoutesUnlocked = True
