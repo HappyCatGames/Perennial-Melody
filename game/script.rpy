@@ -6,7 +6,7 @@
 
 define KANADE = Character(_("KANADE"), color="f9f3ea")
 define HISAE = Character(_("HISAE"), color="043349", namebox_background="gui/namebox_hisae.png", image="hisae")
-image hisae smile = Image("hisae smile.png", xalign=0.2, yalign=0.2)
+image hisae smile = Image("hisae smile.png", xalign=0.2, yalign=0.1)
 define NATSUME = Character(_("NATSUME"), color="f9f3ea", namebox_background="gui/namebox_natsume.png")
 define KANA = Character(_("KANA"), color="f9f3ea")
 define SAE = Character(_("SAE"), color="043349", namebox_background="gui/namebox_hisae.png")
