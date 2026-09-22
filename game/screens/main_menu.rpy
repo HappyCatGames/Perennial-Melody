@@ -22,7 +22,7 @@ screen main_menu():
 
     vbox:
         xpos 45
-        yalign 0.7
+        yoffset 325
         spacing 25
 
         textbutton _('Start').upper() background Frame(button_bg_list[5][0]) hover_background Frame(randomizeButton()[1]) action Start() hovered Play('sound', randomizeAudio())
@@ -44,6 +44,12 @@ screen main_menu():
                 background Frame(button_bg_list[0][0])
                 hover_background Frame(randomizeButton()[1])
                 action ShowMenu("journal", 1) 
+                hovered Play('sound', randomizeAudio())
+
+            textbutton _('Achievements').upper(): 
+                background Frame(button_bg_list[1][0])
+                hover_background Frame(randomizeButton()[1])
+                action ShowMenu("achievement_gallery") 
                 hovered Play('sound', randomizeAudio())
 
         if _in_replay:

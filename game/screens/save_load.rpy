@@ -175,6 +175,7 @@ style page_button:
 
 style page_button_text:
     size 25
-    yoffset -2
+    yoffset -3
+    xoffset 2
     hover_color '#000'
 

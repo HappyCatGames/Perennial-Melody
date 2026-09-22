@@ -82,12 +82,6 @@ screen game_menu(title):
             action ShowMenu("about") 
             hovered Play('sound', randomizeAudio())
 
-        textbutton _('Achievements').upper(): 
-            background Frame(button_bg_list[1][0])
-            hover_background Frame(randomizeButton()[1])
-            action ShowMenu("achievement_gallery") 
-            hovered Play('sound', randomizeAudio())
-
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")): 
 
             ## Help isn't necessary or relevant to mobile devices.
@@ -164,7 +158,7 @@ style game_menu_button:
 
 style game_menu_button_text:
     idle_color '#fff'
-    size 24
+    size 26
     xalign 0.5
 
 

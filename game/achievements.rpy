@@ -383,7 +383,8 @@ screen achievement_popup(a, tag, num):
             ## its dimensions.
             fit "contain" ysize 95 align (0.5, 0.5)
         vbox:
-            text a.name
+            yalign 0.5
+            text a.name font gui.label_text_font
             text a.description size 25
 
     ## Hide the screen after 5 seconds. You can change the time but shouldn't
@@ -393,9 +394,10 @@ screen achievement_popup(a, tag, num):
 
 style achieve_popup_frame:
     is confirm_frame
+    padding (40, 75, 40, 50)
     align (0.0, 0.0)
 style achieve_popup_hbox:
-    spacing 10
+    spacing 20
 style achieve_popup_vbox:
     spacing 2
 style achieve_popup_text:
