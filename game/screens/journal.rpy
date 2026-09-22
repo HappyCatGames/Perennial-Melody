@@ -23,7 +23,6 @@ screen journal(page):
     fixed:
         xsize 1500 xalign 1.0
 
-
         ## This ensures the input will get the enter event before any of the
         ## buttons do.
         order_reverse True

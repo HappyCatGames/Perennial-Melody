@@ -103,28 +103,29 @@ image locked_achievement = Frame("achievements/hidden_achievement.png", 20, 10, 
 ## This is how you declare achievements. You will use `define` and NOT
 ## `default`, so you can update the achievements later (you wouldn't want the
 ## description to be tied to a specific save file, for example).
-## The order you declare achievements in is the order they will appear in the
-## achievement gallery, by default.
-define end_a_achievement = Achievement(
-    ## The human-readable name, as it'll appear in the popup and in the gallery.
-    name=_("thanks for the memories"),
-    ## The id is used for Steam integration, and should match whatever ID
-    ## you have set up in the Steam backend (if using).
-    id="end_a",
-    ## Description.
-    description=_("Get ending A."),
-    ## The image used in the popup and in the gallery once this achievement
-    ## is unlocked.
+
+define open_journal_achievement = Achievement(
+    name=_("What did I need again?"),
+    id="journal",
+    description=_("Open your journal"),
     unlocked_image="gui/window_icon.png",
-    ## By default all achievements use the "locked_achievement" image (declared
-    ## above), but if you wanted to provide a different image, this is how
-    ## you would specify it. It's used in the achievement gallery when the
-    ## achievement is locked.
     locked_image="locked_achievement",
-    ## All achievements are hide_name=False and hide_description=False by
-    ## default, but you can change either to True to hide the name or
-    ## description before the achievement is unlocked. See examples 4-7
-    ## below for how to do this.
+    hide_description=True
+)
+define interact_all_objects_achievement = Achievement(
+    name=_("Meticulous"),
+    id="meticulous_achievement",
+    description=_("Interact with every item in your room."),
+    unlocked_image=Transform("gui/window_icon.png", matrixcolor=InvertMatrix()),
+    show_progress_bar=True,
+    stat_max=16,
+)
+define end_a_achievement = Achievement(
+    name=_("thanks for the memories"),
+    id="end_a",
+    description=_("Get ending A."),
+    unlocked_image="gui/window_icon.png",
+    locked_image="locked_achievement",
     hide_name=False,
     hide_description=True,
 )
@@ -164,46 +165,6 @@ define end_all_achievement = Achievement(
     hide_name=True
 )
 
-## Example 2 ###################################################################
-define set_interact_all_objects_achievement = Achievement(
-    name=_("Meticulous"),
-    id="meticulous_achievement",
-    description=_("Interact with every item in your room."),
-    unlocked_image=Transform("gui/window_icon.png", matrixcolor=InvertMatrix()),
-    show_progress_bar=True,
-    ## To record progress, you need to specify a stat_max. This means you can
-    ## show a progress bar with % completion towards the achievement. It is
-    ## useful if, for example, you have an achievement counting how many
-    ## chapters the player has completed which unlocks when they have seen all
-    ## the chapters.
-    stat_max=16,
-    ## You can also provide a stat_modulo, which means the achievement is only
-    ## updated in the Steam backend every time the stat reaches a multiple of
-    ## the modulo.
-    ## Alternatively, this system also lets you set stat_update_percent instead,
-    ## so if you want it to update every 10% it progresses, you can set
-    # stat_update_percent=10
-    ## This is most useful for achievements with a large number of steps,
-    ## like a general % completion achievement. Maybe there are 600 things to
-    ## complete for the achievement, but obviously 0.1% increments are pretty
-    ## meaningless so you can either set stat_modulo=6 or stat_update_percent=1
-    ## and it will update Steam every 6 steps or every 1%.
-    ## The in-game bar/numbers will still update every increase.
-    ##
-    ## This shows the progress bar in the gallery. This is True by default if
-    ## you have a stat_max, but you can set it to False if you don't want to
-    ## show a bar (but do want to track progress).
-)
-## To update progress towards completion of this achievement, you can use
-# $ progress_achievement.add_progress(1)
-## where 1 is how much progress is added to the stat (so, the first time it
-## is called for the above example it'd be 1/12, the second it'd be 2/12, etc).
-##
-## Alternatively, you can directly set the progress like:
-# $ progress_achievement.progress(5)
-## This will directly set progress to 5, making the above example 5/12 for
-## example. Alternatively, you may want to make use of the built-in "set"
-## functionality, seen below.
 
 ## Example 8 ###################################################################
 ## This -2 makes sure it's declared before the other achievements. This is
@@ -217,86 +178,7 @@ define -2 all_achievements = Achievement(
     hide_description=_("Get all other achievements."),
 )
 
-## This is an example of what granting achievements and recording progress
-## will look like in-script. You can remove this label if you don't need it.
-label achievement_examples():
-    ## For this demonstration, we reset all achievements first.
-    ## Generally you wouldn't do this in-game except for testing.
-    $ Achievement.reset()
-    "Here are some examples of granting achievements during the game."
-    $ sample_achievement.grant()
-    "First up: the sample achievement."
-    "Next, a progress achievement. This one needs [progress_achievement.stat_max] steps to complete. You have [progress_achievement.stat_progress] steps completed."
-    menu achievement_example_add_progress:
-        "You currently have [progress_achievement.stat_progress] steps completed."
-        "Add 1 step":
-            $ progress_achievement.add_progress(1)
-            "Added 1 step. You now have [progress_achievement.stat_progress] steps completed."
-            jump achievement_example_add_progress
-        "Add 4 steps":
-            $ progress_achievement.add_progress(4)
-            "Added 4 steps. You now have [progress_achievement.stat_progress] steps completed."
-            jump achievement_example_add_progress
-        "Set progress to 5":
-            $ progress_achievement.progress(5)
-            "Set progress to 5. You now have [progress_achievement.stat_progress] steps completed. Note that you can't reverse progress - if your progress is higher than 5, it won't be reduced to 5."
-            jump achievement_example_add_progress
-        "Reset this achievement's progress":
-            $ progress_achievement.clear()
-            "Reset progress. You now have [progress_achievement.stat_progress] steps completed."
-            jump achievement_example_add_progress
-        "Done adding progress":
-            pass
-    "Note that the progress you add is {i}not{/i} rollback or repeat-safe! If you roll back, you can add more progress. You will also add more progress picking the same option multiple times."
-    "We can fix that with the next type of progress progression: using sets."
-    "This achievement uses a set to track unique progress towards the achievement."
-    "You don't have to do anything special to use it; just set a stat_max and use the add_set_progress method."
-    menu achievement_example_set_progress:
-        "You currently have [set_progress_achievement.stat_progress] unique steps completed."
-        "See the Good End":
-            $ set_progress_achievement.add_set_progress("good_end")
-            "You saw the good end! You now have [set_progress_achievement.stat_progress] unique steps completed."
-            jump achievement_example_set_progress
-        "See the Bad End":
-            $ set_progress_achievement.add_set_progress("bad_end")
-            "You saw the bad end! You now have [set_progress_achievement.stat_progress] unique steps completed."
-            jump achievement_example_set_progress
-        "See the Neutral End":
-            $ set_progress_achievement.add_set_progress("neutral_end")
-            "You saw the neutral end! You now have [set_progress_achievement.stat_progress] unique steps completed."
-            jump achievement_example_set_progress
-        "See the second Bad End":
-            $ set_progress_achievement.add_set_progress("bad_end2")
-            "You saw the second bad end! You now have [set_progress_achievement.stat_progress] unique steps completed."
-            jump achievement_example_set_progress
-        "Reset this achievement's progress":
-            $ set_progress_achievement.clear()
-        "Done adding set progress":
-            pass
-    "This set progress {i}is{/i} rollback safe. If you roll back or choose the same ending over and over, it will not count towards the achievement's completion multiple times."
-    "Note also that there are 4 possible values that can be added to the set, but the achievement only requires 3 of them to be added to unlock."
-    "The rest of the achievements are fairly straightforward to achieve."
-    menu get_remaining_achievements:
-        "Unlock the hidden achievement" if not hidden_achievement.has():
-            $ hidden_achievement.grant()
-            "You unlocked the hidden achievement!"
-            jump get_remaining_achievements
-        "Unlock the hidden description achievement" if not hidden_description.has():
-            $ hidden_description.grant()
-            "You unlocked the hidden description achievement!"
-            jump get_remaining_achievements
-        "Unlock the hidden name only achievement" if not hidden_name_only.has():
-            $ hidden_name_only.grant()
-            "You unlocked the hidden name only achievement!"
-            jump get_remaining_achievements
-        "Start over and reset achievement progress.":
-            $ Achievement.reset()
-            "All achievements have been reset. You can now start over and earn them again."
-            jump achievement_examples
-        "I'm done with achievements":
-            "I hope this helped you understand how to use achievements in Ren'Py!"
-            return
-    return
+
 ################################################################################
 ## End of example achievement declarations and in-game examples.
 ################################################################################

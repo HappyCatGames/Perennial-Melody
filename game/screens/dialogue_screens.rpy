@@ -117,7 +117,7 @@ screen quick_menu():
             imagebutton auto "gui/button/qm_qsave_%s.png" action QuickSave() hovered Play('sound', randomizeAudio())
             imagebutton auto "gui/button/qm_qload_%s.png" action QuickLoad() hovered Play('sound', randomizeAudio())
             imagebutton auto "gui/button/qm_prefs_%s.png" action ShowMenu('preferences') hovered Play('sound', randomizeAudio())
-            imagebutton auto "gui/button/qm_journal_%s.png" action ShowMenu('journal', 1) hovered Play('sound', randomizeAudio())
+            imagebutton auto "gui/button/qm_journal_%s.png" action [ShowMenu('journal', 1), Function(open_journal_achievement.grant)] hovered Play('sound', randomizeAudio())
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever

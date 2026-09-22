@@ -51,13 +51,19 @@ screen game_menu(title):
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
                 hover_background Frame(randomizeButton()[1])
-                action ShowMenu("journal", 1) 
+                action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
                 hovered Play('sound', randomizeAudio())
         elif not main_menu:
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
                 hover_background Frame(randomizeButton()[1])
-                action ShowMenu("journal", 1) 
+                action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
+                hovered Play('sound', randomizeAudio())
+        if main_menu:
+            textbutton _('Achievements').upper(): 
+                background Frame(button_bg_list[1][0])
+                hover_background Frame(randomizeButton()[1])
+                action ShowMenu("achievement_gallery")
                 hovered Play('sound', randomizeAudio())
 
         if _in_replay:
