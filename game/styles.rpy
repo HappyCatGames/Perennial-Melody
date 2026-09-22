@@ -23,9 +23,9 @@ define config.check_conflicting_properties = True
 ## any instances where they are used directly with their value.
 
 # The text font for dialogue and choice menus
-define gui.text_font = gui.preference("font", "DejaVuSans.ttf")
+define gui.text_font = gui.preference("font", "WinkySans-VariableFont_wght.ttf")
 # The text font for buttons
-define gui.interface_text_font = gui.preference("interface_font", "ArchivoBlack-Regular.ttf")
+define gui.interface_text_font = gui.preference("interface_font", "WinkyRough-VariableFont_wght.ttf")
 define gui.label_text_font = gui.preference("label_font", "Caveat-VariableFont_wght.ttf")
 # The default size of in-game text
 define gui.text_size = gui.preference("size", 33)

@@ -13,8 +13,9 @@ label splashscreen():
     scene black
     with Pause(.5)
     scene happycat_splash with fade
+    play audio "happycat_jingle_bass.ogg"
 
-    with Pause(1.5)
+    with Pause(3.5)
 
     scene black with fade
     with Pause(.5)

@@ -6,8 +6,13 @@
 
 define KANADE = Character(_("KANADE"), color="f9f3ea")
 define HISAE = Character(_("HISAE"), color="043349", namebox_background="gui/namebox_hisae.png", image="hisae")
-image hisae smile = Image("hisae smile.png", xalign=0.2, yalign=0.1)
+image hisae smile = Image("hisae blue smile.png", xalign=0.2, yalign=0.1)
+image hisae annoyed = Image("hisae blue annoyed.png",  xalign=0.2, yalign=0.1)
+image hisae surprised = Image("hisae blue surprised.png",  xalign=0.2, yalign=0.1)
+image hisae smirk = Image("hisae blue smirk.png",  xalign=0.2, yalign=0.1)
 define NATSUME = Character(_("NATSUME"), color="f9f3ea", namebox_background="gui/namebox_natsume.png")
+image natsume glance = Image("natsume purple side.png", xalign=0.75, yalign=0.1)
+image natsume = Image("natsume purple.png", xalign=0.75, yalign=0.1)
 define KANA = Character(_("KANA"), color="f9f3ea")
 define SAE = Character(_("SAE"), color="043349", namebox_background="gui/namebox_hisae.png")
 define UNKNOWN = Character(_("????"), color="f9f3ea")
@@ -339,11 +344,11 @@ label start:
             "You actually had to study quite a bit to accommodate all of these plants and make sure they were all taken care of properly." 
             "Sometimes you think that's why Mr. Shimozaki made you Setsugekka's manager. You're good at taking care of people."
 
-            show hisae smile
+            show hisae smirk
 
             HISAE "Gross. You're such a busybody, Manager-chan."
 
-            hide hisae smile
+            hide hisae smirk
 
         if plant_2.currentIterationCount == 2:
             "Hyacinth. This is one of your favorites. You have one in purple, one in pink, and one in white." 
@@ -427,9 +432,12 @@ label start:
             show hisae smile
 
             HISAE "My first goes French fries. Perfect potato existence. What isn't there to enjoy." 
+
+            show hisae annoyed
+
             HISAE "My flop? Ugh, oatmeal. Porridge. Anything in between. Gruel has no place in my palate. It should be solid, or it should be soup."
 
-            hide hisae smile
+            hide hisae annoyed
 
             "The clip went viral. She's the 21st century Marie Antoinette. Let them eat over-processed garbage."
 
@@ -557,13 +565,22 @@ label start:
             scene bg tunnel bw with dissolve
             "You drove her around Shinjuku after a Setsugekka meet and greet, the sprawling city lights threatening to swallow the two of you whole." 
             "She pressed her hand against the window, lovely hand splayed against the glass. Her lilac hair was in a perfect plait, worn over her shoulder."
+
+            show natsume glance
+
             NATSUME "I could have taken the train."
             KANADE "It's late. I don't think management would be okay with that."
             NATSUME "Funny. Did you forget you're the final say on that sort of thing?"
+
+            show natsume
+
             "She tears her gaze from the streetlights, eyes narrowed, but not unkind."
             KANADE "And I say it's late. We needed to bring the keyboard back to the studio, anyways."
             "When you got to the studio, she fumbled for her keys in your coat pocket." 
             "You thought about kissing her under the moonlight, but the moment passed when she unlocked the door without missing a beat. That's Setsugekka's invincible pianist for you."
+
+            hide natsume
+
             $ plant_1.isActive = False
             $ plant_1.currentIterationCount = 0
 
@@ -907,12 +924,16 @@ label start:
             "As if she could embody anything the stupid flower means. Grace? Sophistication? A pig would be better suited." 
             "The studio's photographer has asked her time and time again to get it removed, she's a public figure, for god's sake. And Hisae Shimozaki said, with the authority of a king:"
 
-            show hisae smile
+            show hisae smirk
 
             HISAE "You can remove it in post."
             
+            hide hisae smirk 
+
             "She did not say that. But you wished she did."
             "Instead, she bowed deeply."
+
+            show hisae smile
 
             HISAE "I'll go back to makeup."
 
@@ -1281,7 +1302,7 @@ label start:
 
         "You open the door."
 
-        show hisae smile
+        show hisae smirk
 
         "Hisae Shimozaki smiles thinly. She's got a set of keys in her hand. Her father's car is in your driveway."
         HISAE "You were running late. Band told me to come get you."

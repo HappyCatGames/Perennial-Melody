@@ -158,7 +158,7 @@ style game_menu_button:
 
 style game_menu_button_text:
     idle_color '#fff'
-    size 24
+    size 26
     xalign 0.5
 
 

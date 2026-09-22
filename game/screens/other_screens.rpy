@@ -48,7 +48,7 @@ screen about():
             xsize 1350
             padding (50,50,50,50)
             vbox:
-                text _("EasyRenPyGui is made by {a=https://github.com/shawna-p}Feniks{/a} {a=https://feniksdev.com/}@feniksdev.com{/a}. \nMade with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]") size 24
+                text _("Achievements for Ren'Py and EasyRenPyGui are made by {a=https://github.com/shawna-p}Feniks{/a} {a=https://feniksdev.com/}@feniksdev.com{/a}. \nMade with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]") size 24
 
 
 style about_label_text:
