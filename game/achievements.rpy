@@ -73,7 +73,7 @@ define myconfig.ACHIEVEMENT_CALLBACK = [
     ## This first example is an achievement which unlocks after two other
     ## achievements have been granted ("hidden_achievement" and
     ## "hidden_description").
-    LinkedAchievement(hidden3=['hidden_achievement', 'hidden_description']),
+    LinkedAchievement(all_ends=['end_a', 'end_b', 'end_c', 'end_d']),
     ## The second example is an achievement which unlocks after all achievements
     ## have been granted. This is a special case.
     LinkedAchievement(platinum_achievement='all'),
@@ -105,14 +105,14 @@ image locked_achievement = Frame("achievements/hidden_achievement.png", 20, 10, 
 ## description to be tied to a specific save file, for example).
 ## The order you declare achievements in is the order they will appear in the
 ## achievement gallery, by default.
-define sample_achievement = Achievement(
+define end_a_achievement = Achievement(
     ## The human-readable name, as it'll appear in the popup and in the gallery.
-    name=_("Sample Achievement"),
+    name=_("thanks for the memories"),
     ## The id is used for Steam integration, and should match whatever ID
     ## you have set up in the Steam backend (if using).
-    id="sample_achievement",
+    id="end_a",
     ## Description.
-    description=_("This is a sample achievement."),
+    description=_("Get ending A."),
     ## The image used in the popup and in the gallery once this achievement
     ## is unlocked.
     unlocked_image="gui/window_icon.png",
@@ -126,16 +126,51 @@ define sample_achievement = Achievement(
     ## description before the achievement is unlocked. See examples 4-7
     ## below for how to do this.
     hide_name=False,
-    hide_description=False,
+    hide_description=True,
 )
 ## You can grant an achievement in-game with `$ sample_achievement.grant()`
+define end_b_achievement = Achievement(
+    name=_("forget me not"),
+    id="end_b",
+    description=_("Get ending B"),
+    unlocked_image="gui/window_icon.png",
+    locked_image="locked_achievement",
+    hide_description=True
+)
+define end_c_achievement = Achievement(
+    name=_("the love that you want"),
+    id="end_c",
+    description=_("Get ending C"),
+    unlocked_image="gui/window_icon.png",
+    locked_image="locked_achievement",
+    hide_description=True
+)
+define end_d_achievement = Achievement(
+    name=_("the love that you deserve"),
+    id="end_d",
+    description=_("Get ending D"),
+    unlocked_image="gui/window_icon.png",
+    locked_image="locked_achievement",
+    hide_description=True,
+    hide_name=True
+)
+define end_all_achievement = Achievement(
+    name=_("end all"),
+    id="all_ends",
+    description=_("Get every ending"),
+    unlocked_image="gui/window_icon.png",
+    locked_image="locked_achievement",
+    hide_description=True,
+    hide_name=True
+)
 
 ## Example 2 ###################################################################
-define progress_achievement = Achievement(
+define set_interact_all_objects_achievement = Achievement(
     name=_("Meticulous"),
     id="meticulous_achievement",
     description=_("Interact with every item in your room."),
     unlocked_image=Transform("gui/window_icon.png", matrixcolor=InvertMatrix()),
+    show_progress_bar=True,
     ## To record progress, you need to specify a stat_max. This means you can
     ## show a progress bar with % completion towards the achievement. It is
     ## useful if, for example, you have an achievement counting how many
@@ -158,7 +193,6 @@ define progress_achievement = Achievement(
     ## This shows the progress bar in the gallery. This is True by default if
     ## you have a stat_max, but you can set it to False if you don't want to
     ## show a bar (but do want to track progress).
-    show_progress_bar=True,
 )
 ## To update progress towards completion of this achievement, you can use
 # $ progress_achievement.add_progress(1)
@@ -170,88 +204,6 @@ define progress_achievement = Achievement(
 ## This will directly set progress to 5, making the above example 5/12 for
 ## example. Alternatively, you may want to make use of the built-in "set"
 ## functionality, seen below.
-
-## Example 3 ###################################################################
-define set_progress_achievement = Achievement(
-    name=_("Set Progress Achievement"),
-    id="set_progress_achievement",
-    description=_("This is an achievement with progress but no bar."),
-    unlocked_image=Transform("gui/window_icon.png", matrixcolor=HueMatrix(270)),
-    ## This sets a stat to progress towards
-    stat_max=3,
-    show_progress_bar=False, # Don't show the progress bar in the gallery
-    # (though it still has a stat that it tracks)
-)
-## Besides the add_progress and progress methods described above, you can also
-## use the add_set_progress method to add a value to a set that's tied to this
-## achievement. Sets are unique - so if you try to add the same value twice, it
-## only ends up in the set once. This means you don't have to check if something
-## is already in the set before adding it.
-## You can use this to track unique flags towards progressing this achievement.
-## For example, say you add a good, bad, and neutral ending to your game.
-## At those endings, you'd have one of the following lines:
-## $ set_progress_achievement.add_set_progress("good_end")
-## $ set_progress_achievement.add_set_progress("bad_end")
-## $ set_progress_achievement.add_set_progress("neutral_end")
-## When the player has seen all 3 endings, the achievement's set will have 3
-## unique values in it, so the achievement will automatically unlock as soon as
-## they get the third one (it doesn't matter what order they see them in).
-## Note that the set is not limited to the stat_max - you could add 10 unique
-## values to it, but it'll unlock the achievement after it has 3 unique values.
-## This can be helpful if you have, say, 20 collectibles in your game but
-## only want to require 15 of them for the achievement.
-## See the example label after Example 8 for some in-script examples
-## of what this might look like.
-
-## Example 4 ###################################################################
-## This achievement is "hidden", that is, its name and description appear as
-## ??? in the achievement gallery until it is unlocked.
-define hidden_achievement = Achievement(
-    name=_("Hidden Achievement"),
-    id="hidden_achievement",
-    description=_("This hidden achievement hides both the name and description."),
-    unlocked_image=Transform("gui/window_icon.png", matrixcolor=BrightnessMatrix(-1.0)),
-    ## The important bit that hides the name and description
-    hide_name=True, hide_description=True,
-)
-
-## Example 5 ###################################################################
-define hidden_description = Achievement(
-    name=_("Hidden Description"),
-    id="hidden_description",
-    description=_("This hidden achievement hides only the description."),
-    unlocked_image=Transform("gui/window_icon.png", matrixcolor=SepiaMatrix()),
-    hide_description=True, ## The important bit that hides only the description
-)
-
-## Example 6 ###################################################################
-## This achievement unlocks automatically when the other two hidden achievements
-## are unlocked. This is set up via myconfig.ACHIEVEMENT_CALLBACK earlier in
-## the file.
-define hidden_double_unlock = Achievement(
-    name=_("You found it"),
-    id="hidden3",
-    description=_("This achievement unlocks automatically when the other two hidden achievements are unlocked."),
-    unlocked_image=Transform("gui/window_icon.png", matrixcolor=ContrastMatrix(0.0)),
-    hide_name=True, ## Hide the name
-    ## Besides just setting hide_description=True to set it to "???", you can
-    ## optionally provide your own custom description here, which is only
-    ## shown until the achievement is unlocked (then it shows the regular
-    ## description).
-    hide_description=_("Try unlocking the other two hidden achievements before this one."),
-)
-
-## Example 7 ###################################################################
-## This achievement has a hidden name but not a hidden description.
-define hidden_name_only = Achievement(
-    name=_("Hidden Name"),
-    id="hidden_name_only",
-    description=_("This achievement hides only the name."),
-    unlocked_image=Transform("gui/window_icon.png", matrixcolor=HueMatrix(90)),
-    # Use a custom name while the achievement is locked
-    hide_name=_("Secret Achievement"),
-    hide_description=False, # Don't hide the description
-)
 
 ## Example 8 ###################################################################
 ## This -2 makes sure it's declared before the other achievements. This is

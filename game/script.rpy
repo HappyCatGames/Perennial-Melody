@@ -1288,8 +1288,10 @@ label start:
 
         if persistent.playthroughNumber == 1:
             scene endcard a with fade
+            $ end_a_achievement.grant()
         if persistent.playthroughNumber == 2:
             scene endcard b with fade
+            $ end_b_achievement.grant()
 
         $ persistent.playthroughNumber += 1
         $ persistent.hasCompletedARoute = True
@@ -1327,6 +1329,7 @@ label start:
 
         $ quick_menu = False
         scene endcard c with fade
+        $ end_c_achievement.grant()
 
         pause
 
@@ -1352,6 +1355,7 @@ label start:
 
         $ quick_menu = False
         scene endcard d with fade
+        $ end_d_achievement.grant()
 
         pause
 
