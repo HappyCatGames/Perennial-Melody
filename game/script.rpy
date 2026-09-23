@@ -4,31 +4,83 @@
 #                                                                                                     #
 #######################################################################################################
 
+## Characters
 define KANADE = Character(_("KANADE"), color="f9f3ea")
 define HISAE = Character(_("HISAE"), color="043349", namebox_background="gui/namebox_hisae.png", image="hisae")
-image hisae smile = Image("hisae blue smile.png", xalign=0.2, yalign=0.1)
-image hisae annoyed = Image("hisae blue annoyed.png",  xalign=0.2, yalign=0.1)
-image hisae surprised = Image("hisae blue surprised.png",  xalign=0.2, yalign=0.1)
-image hisae smirk = Image("hisae blue smirk.png",  xalign=0.2, yalign=0.1)
 define NATSUME = Character(_("NATSUME"), color="f9f3ea", namebox_background="gui/namebox_natsume.png")
-image natsume glance = Image("natsume purple side.png", xalign=0.75, yalign=0.1)
-image natsume = Image("natsume purple.png", xalign=0.75, yalign=0.1)
 define KANA = Character(_("KANA"), color="f9f3ea")
 define SAE = Character(_("SAE"), color="043349", namebox_background="gui/namebox_hisae.png")
 define UNKNOWN = Character(_("????"), color="f9f3ea")
 define n = nvl_narrator
 
+## Animated sprites
+image hisae smile:
+    Image("images/sprites/hisae smile 1.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/hisae smile 2.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/hisae smile 3.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    repeat
+
+image hisae smirk:
+    Image("images/sprites/hisae smirk 1.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/hisae smirk 2.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/hisae smirk 3.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    repeat
+
+image hisae annoyed:
+    Image("images/sprites/hisae annoyed 1.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/hisae annoyed 2.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/hisae annoyed 3.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    repeat
+
+image hisae surprised:
+    Image("images/sprites/hisae surprised 1.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/hisae surprised 2.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/hisae surprised 3.png", xalign=0.2, yalign=0.1, oversample=2)
+    pause .75
+    repeat
+
+image natsume glance:
+    Image("images/sprites/natsume left 1.png", xalign=0.75, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/natsume left 2.png", xalign=0.75, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/natsume left 3.png", xalign=0.75, yalign=0.1, oversample=2)
+    pause .75
+    repeat
+
+image natsume:
+    Image("images/sprites/natsume right 1.png", xalign=0.75, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/natsume right 2.png", xalign=0.75, yalign=0.1, oversample=2)
+    pause .75
+    Image("sprites/natsume right 3.png", xalign=0.75, yalign=0.1, oversample=2)
+    pause .75
+    repeat
+
+
 default itemsInteracted = 0
 default hasKeys = False
 default hasPhone = False
-
 default areEndingRequirementsMet = False
+default necessaryForEnding = ""
 
 default currentLocation = ""
 
-default necessaryForEnding = ""
 default trueEnd = False
 default linger = False
+
+## Persistent variables
 
 default persistent.playthroughNumber = 1
 default persistent.hasCompletedARoute = False
