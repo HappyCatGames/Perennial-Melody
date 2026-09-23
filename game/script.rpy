@@ -280,6 +280,7 @@ label start:
         $ keys.isActive = True
         $ keys.currentIterationCount += 1
         $ currentLocation = setCurrentLocation(keys)
+        $ interact_all_objects_achievement.add_set_progress("keys")
 
         show screen iteration_counter(keys)
 
@@ -336,6 +337,7 @@ label start:
         $ persistent.plant_2Unlocked = True
         $ plant_2.isActive = True
         $ plant_2.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("plant2")
 
         show screen iteration_counter(plant_2)
         
@@ -380,6 +382,7 @@ label start:
         $ persistent.mirrorUnlocked = True
         $ mirror.isActive = True
         $ mirror.currentIterationCount += 1     
+        $ interact_all_objects_achievement.add_set_progress("mirror")
 
         show screen iteration_counter(mirror)     
 
@@ -417,6 +420,7 @@ label start:
         $ persistent.oatmealUnlocked = True
         $ oatmeal.isActive = True
         $ oatmeal.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("oatmeal")
 
         show screen iteration_counter(oatmeal)
         
@@ -465,6 +469,7 @@ label start:
         $ persistent.bedUnlocked = True
         $ bed.isActive = True
         $ bed.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("bed")
 
         show screen iteration_counter(bed)
         
@@ -505,6 +510,7 @@ label start:
         $ persistent.booksUnlocked = True
         $ books.isActive = True
         $ books.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("books")
 
         show screen iteration_counter(books)
         
@@ -542,6 +548,7 @@ label start:
         $ persistent.plant_1Unlocked = True
         $ plant_1.isActive = True
         $ plant_1.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("plant1")
 
         show screen iteration_counter(plant_1)
         
@@ -603,6 +610,7 @@ label start:
         $ persistent.idCardUnlocked = True
         $ idCard.isActive = True
         $ idCard.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("id")
 
         show screen iteration_counter(idCard)
         
@@ -636,6 +644,7 @@ label start:
         $ persistent.phoneUnlocked = True
         $ phone.isActive = True
         $ phone.currentIterationCount += 1
+        $ interact_all_objects_achievement.add_set_progress("phone")
 
         show screen iteration_counter(phone)
         
@@ -702,6 +711,7 @@ label start:
         $ persistent.pictureUnlocked = True
         $ picture.isActive = True
         $ picture.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("picture")
 
         show screen iteration_counter(picture)
         
@@ -743,6 +753,7 @@ label start:
         $ persistent.laundryUnlocked = True
         $ laundry.isActive = True
         $ laundry.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("laundry")
 
         show screen iteration_counter(laundry)
         
@@ -777,6 +788,7 @@ label start:
         $ persistent.pcUnlocked = True
         $ pc.isActive = True
         $ pc.currentIterationCount += 1
+        $ interact_all_objects_achievement.add_set_progress("pc")
 
         show screen iteration_counter(pc)
         
@@ -811,6 +823,7 @@ label start:
         $ persistent.medsUnlocked = True
         $ meds.isActive = True
         $ meds.currentIterationCount += 1
+        $ interact_all_objects_achievement.add_set_progress("meds")
         
         show screen iteration_counter(meds)
 
@@ -844,6 +857,7 @@ label start:
         $ persistent.guitarUnlocked = True
         $ guitar.isActive = True
         $ guitar.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("guitar")
 
         show screen iteration_counter(guitar)
         
@@ -906,6 +920,7 @@ label start:
         $ persistent.camelliaUnlocked = True
         $ camellia.isActive = True
         $ camellia.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("camellia")
 
         show screen iteration_counter(camellia)
         
@@ -964,6 +979,7 @@ label start:
         $ persistent.alyssumUnlocked = True
         $ alyssum.isActive = True
         $ alyssum.currentIterationCount += 1 
+        $ interact_all_objects_achievement.add_set_progress("alyssum")
 
         show screen iteration_counter(alyssum)
         
@@ -1288,8 +1304,10 @@ label start:
 
         if persistent.playthroughNumber == 1:
             scene endcard a with fade
+            $ end_a_achievement.grant()
         if persistent.playthroughNumber == 2:
             scene endcard b with fade
+            $ end_b_achievement.grant()
 
         $ persistent.playthroughNumber += 1
         $ persistent.hasCompletedARoute = True
@@ -1327,6 +1345,7 @@ label start:
 
         $ quick_menu = False
         scene endcard c with fade
+        $ end_c_achievement.grant()
 
         pause
 
@@ -1352,6 +1371,7 @@ label start:
 
         $ quick_menu = False
         scene endcard d with fade
+        $ end_d_achievement.grant()
 
         pause
 

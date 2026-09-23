@@ -43,7 +43,7 @@ screen main_menu():
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
                 hover_background Frame(randomizeButton()[1])
-                action ShowMenu("journal", 1) 
+                action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
                 hovered Play('sound', randomizeAudio())
 
             textbutton _('Achievements').upper(): 
