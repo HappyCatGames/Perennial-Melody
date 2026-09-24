@@ -338,7 +338,7 @@ screen achievement_gallery():
     ## or relocate this.
     label __("Achievements: ") + "{earned}/{total}".format(
             earned=Achievement.num_earned(), total=Achievement.num_total()):
-        text_size 52 xalign 0.62 top_padding 75
+        text_size 52 xalign 0.615 top_padding 75
 
     ## This is an example of a button you might have during development which
     ## will reset all achievement progress at once. It can also be provided

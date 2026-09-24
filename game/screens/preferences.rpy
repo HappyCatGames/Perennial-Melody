@@ -59,7 +59,7 @@ screen preferences():
         hbox:
             style_prefix "slider"
             box_wrap True
-            ypos -90
+            ypos -110
 
             frame:
                 style "section_frame"
@@ -92,7 +92,7 @@ screen preferences():
                             action Preference("all mute", "toggle")
 
             frame:
-                ypos 50
+                ypos 65
                 style "section_frame"
                 vbox:
 

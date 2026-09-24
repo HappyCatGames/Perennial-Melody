@@ -6,6 +6,14 @@
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 define config.main_menu_music = "audio/Tech Ambient.wav"
+image button_hover_bg:
+    Image("gui/button/button_bg_03_hover.png")
+    pause .3
+    Image("gui/button/button_bg_04_hover.png")
+    pause .3
+    Image("gui/button/button_bg_01_hover.png")
+    pause .3
+    repeat
 
 ## Replace this with your background image, if you like
 image main_menu_background = HBox(
@@ -25,30 +33,30 @@ screen main_menu():
         yoffset 325
         spacing 25
 
-        textbutton _('Start').upper() background Frame(button_bg_list[5][0]) hover_background Frame(randomizeButton()[1]) action Start() hovered Play('sound', randomizeAudio())
+        textbutton _('Start').upper() background Frame(button_bg_list[5][0]) hover_background Frame("button_hover_bg") action Start() hovered Play('sound', randomizeAudio())
 
         textbutton _('Load').upper(): 
             background Frame(button_bg_list[3][0])
-            hover_background Frame(randomizeButton()[1])
+            hover_background Frame("button_hover_bg")
             action ShowMenu("load") 
             hovered Play('sound', randomizeAudio())
 
         textbutton _('Preferences').upper():
             background Frame(button_bg_list[4][0])
-            hover_background Frame(randomizeButton()[1]) 
+            hover_background Frame("button_hover_bg")
             action ShowMenu("preferences") 
             hovered Play('sound', randomizeAudio())
 
         if persistent.hasCompletedARoute:
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
                 hovered Play('sound', randomizeAudio())
 
             textbutton _('Achievements').upper(): 
                 background Frame(button_bg_list[1][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action ShowMenu("achievement_gallery") 
                 hovered Play('sound', randomizeAudio())
 
@@ -56,13 +64,13 @@ screen main_menu():
 
             textbutton _('End Replay').upper(): 
                 background Frame(button_bg_list[5][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action EndReplay(confirm=True) 
                 hovered Play('sound', randomizeAudio())
 
         textbutton _('About').upper(): 
             background Frame(button_bg_list[1][0])
-            hover_background Frame(randomizeButton()[1])
+            hover_background Frame("button_hover_bg")
             action ShowMenu("about") 
             hovered Play('sound', randomizeAudio())
 
@@ -71,7 +79,7 @@ screen main_menu():
             ## Help isn't necessary or relevant to mobile devices.
             textbutton _('Help').upper():
                 background Frame(button_bg_list[2][0])
-                hover_background Frame(randomizeButton()[1]) 
+                hover_background Frame("button_hover_bg")
                 action ShowMenu("help") 
                 hovered Play('sound', randomizeAudio())
 
@@ -79,7 +87,7 @@ screen main_menu():
 
             textbutton _('Credits').upper(): 
                 background Frame(button_bg_list[3][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action Jump("credits") 
                 hovered Play('sound', randomizeAudio())
         
@@ -89,6 +97,6 @@ screen main_menu():
             ## Web.
             textbutton _('Quit').upper(): 
                 background Frame(button_bg_list[4][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action Quit(confirm=not main_menu) 
                 hovered Play('sound', randomizeAudio())

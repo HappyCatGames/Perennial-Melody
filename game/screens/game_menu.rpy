@@ -20,49 +20,49 @@ screen game_menu(title):
         spacing 25
 
         if main_menu:
-            textbutton _('Start').upper() background Frame(button_bg_list[5][0]) hover_background Frame(randomizeButton()[1]) action Start() hovered Play('sound', randomizeAudio())
+            textbutton _('Start').upper() background Frame(button_bg_list[5][0]) hover_background Frame("button_hover_bg") action Start() hovered Play('sound', randomizeAudio())
 
         if not main_menu: 
             textbutton _('History').upper(): 
                 background Frame(button_bg_list[1][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action ShowMenu("history") 
                 hovered Play('sound', randomizeAudio())
 
             textbutton _('Save').upper(): 
                 background Frame(button_bg_list[2][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action ShowMenu("save") 
                 hovered Play('sound', randomizeAudio())
 
         textbutton _('Load').upper(): 
             background Frame(button_bg_list[3][0])
-            hover_background Frame(randomizeButton()[1])
+            hover_background Frame("button_hover_bg")
             action ShowMenu("load") 
             hovered Play('sound', randomizeAudio())
 
         textbutton _('Preferences').upper():
             background Frame(button_bg_list[4][0])
-            hover_background Frame(randomizeButton()[1]) 
+            hover_background Frame("button_hover_bg")
             action ShowMenu("preferences") 
             hovered Play('sound', randomizeAudio())
 
         if main_menu and persistent.hasCompletedARoute:
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
                 hovered Play('sound', randomizeAudio())
         elif not main_menu:
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
                 hovered Play('sound', randomizeAudio())
         if main_menu:
             textbutton _('Achievements').upper(): 
                 background Frame(button_bg_list[1][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action ShowMenu("achievement_gallery")
                 hovered Play('sound', randomizeAudio())
 
@@ -70,7 +70,7 @@ screen game_menu(title):
 
             textbutton _('End Replay').upper(): 
                 background Frame(button_bg_list[5][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action EndReplay(confirm=True) 
                 hovered Play('sound', randomizeAudio())
 
@@ -78,13 +78,13 @@ screen game_menu(title):
 
             textbutton _('Main Menu').upper(): 
                 background Frame(button_bg_list[0][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action MainMenu() 
                 hovered Play('sound', randomizeAudio())
 
         textbutton _('About').upper(): 
             background Frame(button_bg_list[1][0])
-            hover_background Frame(randomizeButton()[1])
+            hover_background Frame("button_hover_bg")
             action ShowMenu("about") 
             hovered Play('sound', randomizeAudio())
 
@@ -93,7 +93,7 @@ screen game_menu(title):
             ## Help isn't necessary or relevant to mobile devices.
             textbutton _('Help').upper():
                 background Frame(button_bg_list[2][0])
-                hover_background Frame(randomizeButton()[1]) 
+                hover_background Frame("button_hover_bg")
                 action ShowMenu("help") 
                 hovered Play('sound', randomizeAudio())
         
@@ -101,7 +101,7 @@ screen game_menu(title):
 
             textbutton _('Credits').upper(): 
                 background Frame(button_bg_list[3][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action Jump("credits") 
                 hovered Play('sound', randomizeAudio())
         
@@ -111,7 +111,7 @@ screen game_menu(title):
             ## Web.
             textbutton _('Quit').upper(): 
                 background Frame(button_bg_list[4][0])
-                hover_background Frame(randomizeButton()[1])
+                hover_background Frame("button_hover_bg")
                 action Quit(confirm=not main_menu) 
                 hovered Play('sound', randomizeAudio())
     
@@ -161,6 +161,7 @@ style game_menu_label_text:
 style game_menu_button:
     padding (10, 10)
     xsize 270
+    hover_background Frame("button_hover_bg")
 
 style game_menu_button_text:
     idle_color '#fff'
