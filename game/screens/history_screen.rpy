@@ -35,11 +35,21 @@ screen history():
                 has hbox
                 if h.who:
                     label h.who style 'history_name':
+                        if h.who == "KANADE" or h.who == "KANA":
+                            background Frame(button_bg_list[3][0])
+                        if h.who == "HISAE" or h.who == "SAE":
+                            background Frame(Transform(button_bg_list[2][0], matrixcolor=ColorizeMatrix("#c3e9fb", "#c3e9fb")))
+                        if h.who == "NATSUME":
+                            background Frame(Transform(button_bg_list[5][0], matrixcolor=ColorizeMatrix("#412f90", "#412f90")))
+                        padding (15, 5, 15, 5)
                         substitute False
                         ## Take the color of the who text
                         ## from the Character, if set
                         if "color" in h.who_args:
                             text_color h.who_args["color"]
+                        if h.who == "????":
+                            background Frame(button_bg_list[0][1])
+                            text_color "#000"
                         xsize 200   # this number and the null width
                                     # number should be the same
                 else:
@@ -59,7 +69,7 @@ define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
 
 
 style history_frame:
-    xsize 1400
+    xsize 1300
     ysize None
     background None
 
