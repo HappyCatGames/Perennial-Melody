@@ -90,7 +90,8 @@ screen file_slots(title):
             style_prefix "page"
 
             xalign 0.5
-            yalign 0.9
+            yalign 0.95
+            spacing 15
 
             hbox:
                 
@@ -104,22 +105,31 @@ screen file_slots(title):
 
                 ## range(1, 10) gives the numbers from 1 to 9.
                 for page in range(1, 10):
-                    textbutton "[page]" action FilePage(page) hovered Play('sound', randomizeAudio())
+                    textbutton "[page]": 
+                        action FilePage(page) 
+                        hovered Play('sound', randomizeAudio())
 
                 textbutton _(">") action FilePageNext() hovered Play('sound', randomizeAudio())
 
             if config.has_sync:
                 if CurrentScreenName() == "save":
-                    imagebutton auto "gui/button/upload-sync_%s.png":
+                    textbutton _("UPLOAD SYNC"):
+                        background Frame(button_bg_list[1][0])
+                        hover_background Frame("button_hover_bg")
+                        hovered Play('sound', randomizeAudio())
+                        text_color "#f9f3ea"
+                        text_hover_color "#000"
                         action UploadSync()
                         xalign 0.5
-                        ypos 30
-                        hovered Play('sound', randomizeAudio())
+                        
                 else:
-                    imagebutton auto "gui/button/download-sync_%s.png":
+                    textbutton _("DOWNLOAD SYNC"):
                         action DownloadSync()
                         xalign 0.5
-                        ypos 30
+                        background Frame(button_bg_list[1][0])
+                        hover_background Frame("button_hover_bg")
+                        text_color "#f9f3ea"
+                        text_hover_color "#000"
                         hovered Play('sound', randomizeAudio())
 
 
@@ -172,10 +182,12 @@ style page_button:
     xalign 0.5
     background Frame("gui/btn_box_idle.png", 50, 50, 50, 50, tile=True)
     hover_background Frame("gui/btn_box_hover.png", 50, 50, 50, 50, tile=True)
+    selected_background Frame('gui/btn_box_selected.png') 
 
 style page_button_text:
     size 25
     yoffset -3
     xoffset 2
     hover_color '#000'
+    selected_color '#fff'
 

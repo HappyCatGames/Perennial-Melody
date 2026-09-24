@@ -221,7 +221,7 @@ style help_button:
     padding (15, 10, 15, 10)
 
 style help_button_text:
-    idle_color "#fff"
+    idle_color "#f9f3ea"
 
 style help_label:
     xsize 375
