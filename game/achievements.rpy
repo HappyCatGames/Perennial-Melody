@@ -134,7 +134,7 @@ define end_b_achievement = Achievement(
     name=_("forget me not"),
     id="end_b",
     description=_("Get ending B"),
-    unlocked_image="gui/window_icon.png",
+    unlocked_image="achievements/end_b.png",
     locked_image="locked_achievement",
     hide_description=True
 )
@@ -142,7 +142,7 @@ define end_c_achievement = Achievement(
     name=_("the love that you want"),
     id="end_c",
     description=_("Get ending C"),
-    unlocked_image="gui/window_icon.png",
+    unlocked_image="achievements/end_c.png",
     locked_image="locked_achievement",
     hide_description=True
 )
@@ -150,7 +150,7 @@ define end_d_achievement = Achievement(
     name=_("the love that you deserve"),
     id="end_d",
     description=_("Get ending D"),
-    unlocked_image="gui/window_icon.png",
+    unlocked_image="achievements/end_d.png",
     locked_image="locked_achievement",
     hide_description=True,
     hide_name=True
@@ -159,7 +159,7 @@ define end_all_achievement = Achievement(
     name=_("end all"),
     id="all_ends",
     description=_("Get every ending"),
-    unlocked_image="gui/window_icon.png",
+    unlocked_image="achievements/all_endings.png",
     locked_image="locked_achievement",
     hide_description=True,
     hide_name=True
@@ -271,59 +271,64 @@ screen achievement_gallery():
     viewport:
         mousewheel True draggable True pagekeys True
         scrollbars "vertical"
-        xoffset 550
+        xoffset 650
         yoffset 225
-        xsize int(config.screen_width*0.7) ysize int(config.screen_height*0.7)
-        xfill False yfill False
+        xsize int(config.screen_width*0.65) ysize int(config.screen_height*0.75)
+        xfill True yfill False
         has vbox
-        spacing 35
+        spacing 5
 
         ## This list contains every achievement you declared. You can also
         ## create your own lists to iterate over, if desired. That would be
         ## useful if you wanted to group achievements by category, for example.
         for a in Achievement.all_achievements:
-            button:
-                style_prefix 'achievement'
-                ## During development, you can click on achievements in the
-                ## gallery and they will toggle on/off.
-                if config.developer:
-                    action a.Toggle()
-                else:
-                    ## This prevents the button from changing style when not
-                    ## in development mode.
-                    action NullAction()
-                has hbox
-                if a.idle_img:
-                    fixed:
-                        align (0.5, 0.5)
-                        xysize (155, 135)
-                        add a.idle_img fit "scale-down" ysize 135 align (0.5, 0.5)
-                else:
-                    null width -10
-                vbox:
-                    label a.name
-                    text a.description
-                    xsize 900
-                    if a.has():
-                        ## There are two ways to display the timestamp. The
-                        ## first is automatically formatted like
-                        ## Unlocked Sep 14, 2023 @ 6:45 PM
-                        text a.timestamp size 22
-                        ## If you want to format it yourself, you can use
-                        ## the get_timestamp method:
-                        # text __("Achieved at ") + a.get_timestamp(__("%H:%M on %Y/%m/%d"))
-                        ## The above example would display the timestamp like:
-                        ## Achieved at 18:45 on 2023/09/14
-                        ## See https://strftime.org/ for formatting
-                        ## Note also the double underscores for translation.
-                    elif a.stat_max and a.show_progress_bar:
-                        # Has a bar to show stat progress.
+            frame:
+                background Frame("gui/frame.png", 30, 60, 30, 60, tile=False)
+                padding (30, 75, 30, 55)
+                xsize 990
+
+                button:
+                    style_prefix 'achievement'
+                    ## During development, you can click on achievements in the
+                    ## gallery and they will toggle on/off.
+                    if config.developer:
+                        action a.Toggle()
+                    else:
+                        ## This prevents the button from changing style when not
+                        ## in development mode.
+                        action NullAction()
+                    has hbox
+                    if a.idle_img:
                         fixed:
-                            fit_first True
-                            bar value a.stat_progress range a.stat_max:
-                                style 'achievement_bar'
-                            text "[a.stat_progress]/[a.stat_max]":
-                                style_suffix "progress_text"
+                            align (0.5, 0.5)
+                            xysize (155, 135)
+                            add a.idle_img fit "scale-down" ysize 135 align (0.5, 0.5)
+                    else:
+                        null width -10
+                    vbox:
+                        label a.name
+                        text a.description
+                        xsize 900
+                        if a.has():
+                            ## There are two ways to display the timestamp. The
+                            ## first is automatically formatted like
+                            ## Unlocked Sep 14, 2023 @ 6:45 PM
+                            text a.timestamp size 22
+                            ## If you want to format it yourself, you can use
+                            ## the get_timestamp method:
+                            # text __("Achieved at ") + a.get_timestamp(__("%H:%M on %Y/%m/%d"))
+                            ## The above example would display the timestamp like:
+                            ## Achieved at 18:45 on 2023/09/14
+                            ## See https://strftime.org/ for formatting
+                            ## Note also the double underscores for translation.
+                        elif a.stat_max and a.show_progress_bar:
+                            # Has a bar to show stat progress.
+                            fixed:
+                                fit_first True
+                                bar value a.stat_progress range a.stat_max:
+                                    style 'achievement_bar'
+                                text "[a.stat_progress]/[a.stat_max]":
+                                    style_suffix "progress_text"
 
         ## So there's a bit of space at the bottom after scrolling all the way.
         null height 100
@@ -333,7 +338,7 @@ screen achievement_gallery():
     ## or relocate this.
     label __("Achievements: ") + "{earned}/{total}".format(
             earned=Achievement.num_earned(), total=Achievement.num_total()):
-        text_size 52 xalign 0.5 top_padding 75
+        text_size 52 xalign 0.62 top_padding 75
 
     ## This is an example of a button you might have during development which
     ## will reset all achievement progress at once. It can also be provided
