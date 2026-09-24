@@ -398,6 +398,7 @@ label start:
             "You actually had to study quite a bit to accommodate all of these plants and make sure they were all taken care of properly." 
             "Sometimes you think that's why Mr. Shimozaki made you Setsugekka's manager. You're good at taking care of people."
 
+            show bg bed dark with dissolve
             show hisae smirk
 
             HISAE "Gross. You're such a busybody, Manager-chan."
@@ -485,6 +486,7 @@ label start:
             "A bowl of oatmeal. You think about the latest Ti*ktok interview that you edited. Setsugekka's \"Firsts and Flops.\"" 
             "Everyone took their part of the interview seriously but when it came to food items, Hisae Shimozaki wouldn't shut up."
 
+            show bg bed dark with dissolve
             show hisae smile
 
             HISAE "My first goes French fries. Perfect potato existence. What isn't there to enjoy." 
@@ -932,6 +934,7 @@ label start:
         if guitar.currentIterationCount == 6:
             "That's your guitar. Hisae Shimozaki's chicken scratch signature is still there. She thought she was so sneaky, carving away at your most prized possession. When you told her to give it back, what the hell!, she didn't even blink."
 
+            show bg bed dark with dissolve
             show hisae smile
 
             HISAE "Aren't we going to be rockstars, Kana-chan? Live a little."
@@ -991,6 +994,7 @@ label start:
             "As if she could embody anything the stupid flower means. Grace? Sophistication? A pig would be better suited." 
             "The studio's photographer has asked her time and time again to get it removed, she's a public figure, for god's sake. And Hisae Shimozaki said, with the authority of a king:"
 
+            show bg bed dark with dissolve
             show hisae smirk
 
             HISAE "You can remove it in post."
@@ -1388,7 +1392,7 @@ label start:
 
         HISAE "Call next time, Manager-chan."
 
-        hide hisae smile
+        hide hisae smirk
 
         $ persistent.playthroughNumber += 1
         $ persistent.allRoutesUnlocked = True

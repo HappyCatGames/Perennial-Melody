@@ -192,18 +192,19 @@ screen journal(page):
 
             hbox:
                 
-                textbutton _("<") action ShowMenu('journal', previousJournalPage(journal_page)) hovered Play('sound', randomizeAudio())
+                textbutton _("<") action ShowMenu('journal', previousJournalPage(journal_page)) hovered Play('sound', randomizeAudio()) selected False
 
                 ## range(1, 10) gives the numbers from 1 to 9.
                 for page in range(1, 4):
                     textbutton "[page]": 
+                        selected False
                         if journal_page == page:
                             background Frame('gui/btn_box_selected.png') 
-                            text_color '#fff'
+                            text_color '#f9f3ea'
                         action ShowMenu('journal', page) 
                         hovered Play('sound', randomizeAudio())
 
-                textbutton _(">") action ShowMenu('journal', nextJournalPage(journal_page)) hovered Play('sound', randomizeAudio())
+                textbutton _(">") action ShowMenu('journal', nextJournalPage(journal_page)) hovered Play('sound', randomizeAudio()) selected False
 
 style journal_frame is empty:
     xalign 0.5

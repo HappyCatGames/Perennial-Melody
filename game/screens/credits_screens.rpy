@@ -4,10 +4,25 @@
 ##
 ## ##################################################################
 
+init python:
+    style.credits_hyperlink = Style(style.hyperlink_text)
+    style.credits_hyperlink.color = "#c3e9fb"
+    style.credits_hyperlink.hover_color = "#766ad3"
+
+    def credits_hyperlink_styler(target):
+        return style.credits_hyperlink
+
+    style.default.hyperlink_functions = (
+        credits_hyperlink_styler,
+        style.default.hyperlink_functions[1],
+        style.default.hyperlink_functions[2]
+    )
+
 screen credits():
 
     tag menu
     style_prefix "credits"
+    image "bg dark.png"
 
 
     label _("Credits") xalign 0.5 ypos 50
@@ -40,6 +55,7 @@ screen credits():
 screen credits_2():
     tag menu
     style_prefix "credits"
+    image "bg dark.png"
 
     label _("Credits"): 
         xalign 0.5 
@@ -72,6 +88,7 @@ screen credits_3():
 
     tag menu
     style_prefix "credits"
+    image "bg dark.png"
 
 
     label _("Credits") xalign 0.5 ypos 50
@@ -100,6 +117,7 @@ screen credits_4():
 
     tag menu
     style_prefix "credits"
+    image "bg dark.png"
 
     label _("Credits") xalign 0.5 ypos 50
 
@@ -153,6 +171,3 @@ style credits_text:
     size 24
     line_spacing 10
     color gui.light_text_color
-
-style credits_hyperlink_text is hyperlink_text:
-    hover_color gui.light_text_color

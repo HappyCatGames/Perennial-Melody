@@ -166,7 +166,7 @@ style slot_button_text:
     xalign 0.5
     idle_color '#aaaaaa'
     hover_color '#ff8335'
-    selected_idle_color '#ffffff'
+    selected_idle_color '#f9f3ea'
 
 style page_hbox:
     xalign 0.5
@@ -189,5 +189,5 @@ style page_button_text:
     yoffset -3
     xoffset 2
     hover_color '#000'
-    selected_color '#fff'
+    selected_color '#f9f3ea'
 
