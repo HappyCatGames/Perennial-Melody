@@ -82,11 +82,23 @@ screen help():
 
         hbox:
 
-            textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
-            textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+            textbutton _("Keyboard"): 
+                action SetScreenVariable("device", "keyboard")
+                background Frame(button_bg_list[4][0])
+                hover_background Frame("button_hover_bg")
+                hovered Play('sound', randomizeAudio())
+            textbutton _("Mouse"):
+                action SetScreenVariable("device", "mouse")
+                background Frame(button_bg_list[3][0])
+                hover_background Frame("button_hover_bg")
+                hovered Play('sound', randomizeAudio())
 
             if GamepadExists():
-                textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+                textbutton _("Gamepad"):
+                    action SetScreenVariable("device", "gamepad")
+                    background Frame(button_bg_list[2][0])
+                    hover_background Frame("button_hover_bg")
+                    hovered Play('sound', randomizeAudio())
 
         if device == "keyboard":
             use keyboard_help
@@ -197,11 +209,19 @@ screen gamepad_help():
         label _("Y/Top Button")
         text _("Hides the user interface.")
 
-    textbutton _("Calibrate") action GamepadCalibrate()
+    textbutton _("Calibrate"): 
+        action GamepadCalibrate()
+        background Frame(button_bg_list[1][0])
+        hover_background Frame("button_hover_bg")
+        hovered Play('sound', randomizeAudio())
 
 
 style help_button:
     xmargin 12
+    padding (15, 10, 15, 10)
+
+style help_button_text:
+    idle_color "#fff"
 
 style help_label:
     xsize 375
