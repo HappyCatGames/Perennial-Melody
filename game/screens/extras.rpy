@@ -1,6 +1,7 @@
 screen extras():
 
-    use game_menu(_("Extras"))
+    tag menu
+
     style_prefix "game_menu"
     add "gui/overlay/game_menu.png"
 
@@ -18,6 +19,11 @@ screen extras():
                 background Frame(button_bg_list[2][0])
                 hover_background Frame("button_hover_bg")
                 action Jump("credits")
+                hovered Play('sound', randomizeAudio())
+            textbutton _('Music Room').upper():
+                background Frame(button_bg_list[3][0])
+                hover_background Frame("button_hover_bg")
+                action ShowMenu("music_room3", mr=music_room)
                 hovered Play('sound', randomizeAudio())
         elif not main_menu:
             textbutton _('Journal').upper():
@@ -39,6 +45,8 @@ screen extras():
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
+
+    label __("Extras")
 
 style return_button:
     xpos 45
