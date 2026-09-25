@@ -111,6 +111,7 @@ screen credits_3():
             • {a=https://elements.envato.com/bass-groove-revival-VP6HDFB}"Bass Groove Revival"{/a} by {a=https://elements.envato.com/user/StudioEtude}StudioEtude{/a}. Licensed under the {a=https://elements.envato.com/license-terms}Envato Elements Commercial License{/a}
             • {a=https://elements.envato.com/wistful-reflections-a-nostalgic-MVTSCUN}"Wistful Reflections A Nostalgic"{/a} by {a=https://elements.envato.com/user/Awesome_Music}Awesome_Music{/a}. Modifications: Compression, filters. Licensed under the {a=https://elements.envato.com/license-terms}Envato Elements Commercial License{/a}
             • {a=https://freesound.org/s/391350/}Flipping Pages{/a} by {a=https://freesound.org/people/VithorMoraes/}VithorMoraes{/a} is in the {a=https://wiki.creativecommons.org/Public_domain}Public Domain, CC0{/a}
+            • {a=https://freesound.org/s/399080/}Clay Pottery Drop 'n' Break{/a} by {a=https://freesound.org/people/Kinoton/}Kinoton{/a} is in the {a=https://wiki.creativecommons.org/Public_domain}Public Domain, CC0{/a}
             """ ypos 50
 
 screen credits_4():

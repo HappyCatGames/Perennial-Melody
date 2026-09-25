@@ -108,15 +108,10 @@ screen quick_menu():
             imagebutton auto "gui/button/qm_back_%s.png":  
                 hovered Play('sound', randomizeAudio())
                 action Rollback()
-            imagebutton auto "gui/button/qm_history_%s.png": 
-                hovered Play('sound', randomizeAudio()) 
-                action ShowMenu('history')
             imagebutton auto "gui/button/qm_skip_%s.png" action Skip() alternate Skip(fast=True, confirm=True) hovered Play('sound', randomizeAudio())
             imagebutton auto "gui/button/qm_auto_%s.png" action Preference("auto-forward", "toggle") hovered Play('sound', randomizeAudio())
-            imagebutton auto "gui/button/qm_save_%s.png" action ShowMenu('save') hovered Play('sound', randomizeAudio())
             imagebutton auto "gui/button/qm_qsave_%s.png" action QuickSave() hovered Play('sound', randomizeAudio())
             imagebutton auto "gui/button/qm_qload_%s.png" action QuickLoad() hovered Play('sound', randomizeAudio())
-            imagebutton auto "gui/button/qm_prefs_%s.png" action ShowMenu('preferences') hovered Play('sound', randomizeAudio())
             imagebutton auto "gui/button/qm_journal_%s.png" action [ShowMenu('journal', 1), Function(open_journal_achievement.grant)] hovered Play('sound', randomizeAudio())
 
 

@@ -246,8 +246,13 @@ label start:
 
             UNKNOWN "Kana-chan?"
             KANA "Sorry, I was spacing out. Let's go."
+            
+            $ quick_menu = False
+            $ _window_hide()
+            show bg pc bw with Fade(0.5, 1.0, 2)
+            pause 1.0
 
-            show bg pc bw with dissolve
+            $ quick_menu = True
 
             KANADE "Shit. Did I oversleep?" 
 
@@ -934,7 +939,7 @@ label start:
         if guitar.currentIterationCount == 6:
             "That's your guitar. Hisae Shimozaki's chicken scratch signature is still there. She thought she was so sneaky, carving away at your most prized possession. When you told her to give it back, what the hell!, she didn't even blink."
 
-            show bg bed dark with dissolve
+            show bg pc dark with dissolve
             show hisae smile
 
             HISAE "Aren't we going to be rockstars, Kana-chan? Live a little."
@@ -944,6 +949,7 @@ label start:
             "You were twelve."
 
         if guitar.currentIterationCount == 7:
+            show bg pc bw
             "That's your guitar. It's a Telecaster. It was a thrift store find." 
             "Your father bought it off someone else who gave up on a dream you were clutching onto with hands held tight, with nails biting into palms. Cherry red. The wood grain is gorgeous." 
             "It's the love of your life, until you realize that the girl next to you means a little more. She twirls a utility knife with a practiced flourished and slices her bass strings."
@@ -994,7 +1000,7 @@ label start:
             "As if she could embody anything the stupid flower means. Grace? Sophistication? A pig would be better suited." 
             "The studio's photographer has asked her time and time again to get it removed, she's a public figure, for god's sake. And Hisae Shimozaki said, with the authority of a king:"
 
-            show bg bed dark with dissolve
+            show bg pc dark with dissolve
             show hisae smirk
 
             HISAE "You can remove it in post."
@@ -1009,6 +1015,7 @@ label start:
             HISAE "I'll go back to makeup."
 
             hide hisae smile
+            show bg pc bw
 
         if camellia.currentIterationCount == 4:
             "A winter flower. You can't help yourself when it comes to her."
@@ -1279,6 +1286,7 @@ label start:
     label scenario_3:
         hide screen iteration_counter
         scene bg brokenplant bw with dissolve
+        play sound pot_break
         play music "audio/Wistful Reflections Distorted.wav"
 
         "You have a fistful of dirt in your hand. It's all over your table, bits and chunks have a new home on the floor. The alyssum plant is ruined." 
@@ -1461,5 +1469,3 @@ label credits:
     pause
 
     return
-    
-$ MainMenu()
