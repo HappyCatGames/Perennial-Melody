@@ -28,7 +28,7 @@ init python:
 # Style for the dialogue window
 style window:
     xalign 0.5
-    yalign 1.0
+    yalign 1.002
     xfill True
     ysize 278
     padding (40, 10, 40, 40)
@@ -47,7 +47,7 @@ style say_thought:
 
 # Style for the box containing the speaker's name
 style namebox:
-    ypos -149
+    ypos -148
     xpos 200
     xysize (470, 135)
     background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
@@ -103,7 +103,7 @@ screen quick_menu():
         hbox:
             style_prefix "quick" 
             xalign 0.5
-            yalign 1.0               
+            yalign 1.001               
 
             imagebutton auto "gui/button/qm_back_%s.png":  
                 hovered Play('sound', randomizeAudio())

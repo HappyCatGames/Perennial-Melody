@@ -1365,6 +1365,7 @@ label start:
         stop music fadeout 1.0
 
         $ quick_menu = False
+        scene black with Fade(0.5, 0.5, 0.5, color="#000")
 
         if persistent.playthroughNumber == 1:
             scene endcard a with fade
