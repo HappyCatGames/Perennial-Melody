@@ -643,9 +643,13 @@ label start:
             "She tears her gaze from the streetlights, eyes narrowed, but not unkind."
             KANADE "And I say it's late. We needed to bring the keyboard back to the studio, anyways."
             "When you got to the studio, she fumbled for her keys in your coat pocket." 
-            "You thought about kissing her under the moonlight, but the moment passed when she unlocked the door without missing a beat. That's Setsugekka's invincible pianist for you."
+            "You thought about kissing her under the moonlight, but the moment passed when she unlocked the door without missing a beat." 
 
             hide natsume
+
+            "That's Setsugekka's invincible pianist for you."
+            
+            scene black with Fade(0.2, 0.5, 0.2)
 
             $ plant_1.isActive = False
             $ plant_1.currentIterationCount = 0
