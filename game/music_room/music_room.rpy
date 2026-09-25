@@ -173,11 +173,12 @@ transform zoom_button(z):
 ## Styles for the track list, shared generally by the other rooms.
 ################################################################################
 style track_list_frame:
-    background "#21212d"
+    background Frame("gui/frame_plain.png", 60,60,60,60)
+    yoffset 175
     yalign 0.0 xalign 0.0
     padding (25, 25)
 style track_list_viewport:
-    xfill False yfill False ymaximum config.screen_height-200
+    xfill False yfill False ymaximum config.screen_height-300
 style track_list_side:
     spacing 20
 style track_list_vbox:
@@ -192,15 +193,15 @@ style track_list_hbox:
 style track_list_fixed:
     xsize 45 ysize 45 yalign 0.5
 style track_list_text:
-    color "#bfbfb9"
+    color "#000"
     insensitive_color "#666"
 style track_list_label:
     background None padding (2, 0)
 style track_list_label_text:
-    color "#f7f7ed" hover_color "#f93c3e" selected_color "#ff8335"
+    color "#000" hover_color "#f93c3e" selected_color "#666"
     insensitive_color "#666"
 style track_list_vscrollbar:
-    thumb "#fc5f39" base_bar "#292835"
+    thumb "#000" base_bar "#292835"
 
 ################################################################################
 ## SCREENS - VERSION 3
@@ -230,6 +231,7 @@ screen music_room3(mr):
         yfill True
         xsize config.screen_width-420
         align (1.0, 0.5)
+        label _("Track List") style "music_room_title" yoffset 75
     ##
     ############################################################################
 
@@ -239,7 +241,6 @@ screen music_room3(mr):
             viewport:
                 mousewheel True scrollbars "vertical" draggable True
                 has vbox
-                label _("Track List") style "music_room_title"
                 ## get_tracklist takes one argument, all_tracks. If all_tracks is
                 ## True, it shows all tracks, including locked ones (which will be
                 ## shown grayed out). If all_tracks is False, it only shows unlocked
