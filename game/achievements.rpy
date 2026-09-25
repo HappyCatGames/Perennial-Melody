@@ -105,7 +105,7 @@ image locked_achievement = Frame("achievements/hidden_achievement.png", 20, 10, 
 ## description to be tied to a specific save file, for example).
 
 define open_journal_achievement = Achievement(
-    name=_("What did I need again?"),
+    name=_("Goin' Postal"),
     id="journal",
     description=_("Open your journal"),
     unlocked_image="gui/window_icon.png",
@@ -113,7 +113,7 @@ define open_journal_achievement = Achievement(
     hide_description=True
 )
 define interact_all_objects_achievement = Achievement(
-    name=_("Meticulous"),
+    name=_("Does it spark joy?"),
     id="meticulous_achievement",
     description=_("Interact with every item in your room."),
     unlocked_image=Transform("gui/window_icon.png", matrixcolor=InvertMatrix()),
@@ -133,7 +133,7 @@ define end_a_achievement = Achievement(
 define end_b_achievement = Achievement(
     name=_("forget me not"),
     id="end_b",
-    description=_("Get ending B"),
+    description=_("Get ending B."),
     unlocked_image="achievements/end_b.png",
     locked_image="locked_achievement",
     hide_description=True
@@ -141,7 +141,7 @@ define end_b_achievement = Achievement(
 define end_c_achievement = Achievement(
     name=_("the love that you want"),
     id="end_c",
-    description=_("Get ending C"),
+    description=_("Get ending C."),
     unlocked_image="achievements/end_c.png",
     locked_image="locked_achievement",
     hide_description=True
@@ -149,16 +149,16 @@ define end_c_achievement = Achievement(
 define end_d_achievement = Achievement(
     name=_("the love that you deserve"),
     id="end_d",
-    description=_("Get ending D"),
+    description=_("Get ending D."),
     unlocked_image="achievements/end_d.png",
     locked_image="locked_achievement",
     hide_description=True,
     hide_name=True
 )
 define end_all_achievement = Achievement(
-    name=_("end all"),
+    name=_("You can't fix her."),
     id="all_ends",
-    description=_("Get every ending"),
+    description=_("Get every ending."),
     unlocked_image="achievements/all_endings.png",
     locked_image="locked_achievement",
     hide_description=True,
@@ -171,9 +171,9 @@ define end_all_achievement = Achievement(
 ## so it shows up first in the list even though it's defined all the way down
 ## here.
 define -2 all_achievements = Achievement(
-    name=_("Platinum Achievement"),
+    name=_("Perennial Melody"),
     id="platinum_achievement",
-    description=_("Congrats! You unlocked every achievement!"),
+    description=_("{i}I want to be dyed in your sound.{/i} You unlocked every achievement!"),
     unlocked_image=Transform("gui/window_icon.png", matrixcolor=BrightnessMatrix(1.0)),
     hide_description=_("Get all other achievements."),
 )
