@@ -48,16 +48,10 @@ screen main_menu():
             hovered Play('sound', randomizeAudio())
 
         if persistent.hasCompletedARoute:
-            textbutton _('Journal').upper():
+            textbutton _('Extras').upper():
                 background Frame(button_bg_list[0][0])
                 hover_background Frame("button_hover_bg")
-                action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
-                hovered Play('sound', randomizeAudio())
-
-            textbutton _('Achievements').upper(): 
-                background Frame(button_bg_list[1][0])
-                hover_background Frame("button_hover_bg")
-                action ShowMenu("achievement_gallery") 
+                action ShowMenu("extras")
                 hovered Play('sound', randomizeAudio())
 
         if _in_replay:

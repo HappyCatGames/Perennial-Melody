@@ -60,10 +60,10 @@ screen game_menu(title):
                 action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
                 hovered Play('sound', randomizeAudio())
         if main_menu:
-            textbutton _('Achievements').upper(): 
-                background Frame(button_bg_list[1][0])
+            textbutton _('Extras').upper():
+                background Frame(button_bg_list[0][0])
                 hover_background Frame("button_hover_bg")
-                action ShowMenu("achievement_gallery")
+                action ShowMenu("extras")
                 hovered Play('sound', randomizeAudio())
 
         if _in_replay:
