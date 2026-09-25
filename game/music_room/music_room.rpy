@@ -237,7 +237,7 @@ screen music_room3(mr):
 
         frame:
             style_prefix 'track_list'
-            xfill True top_margin 25 yfill True bottom_margin 220
+            xfill True top_margin 25 yfill True bottom_margin 390
             viewport:
                 mousewheel True scrollbars "vertical" draggable True
                 has vbox
@@ -355,7 +355,7 @@ style music_room_title:
     background None xalign 0.5 bottom_padding 15
 style music_room_title_text:
     font gui.name_text_font
-    size 50 color "#ff8335" xalign 0.5
+    size 50 color "#000" xalign 0.5
 style musicroom3_hbox:
     spacing 20
 style musicroom3_image_button:
