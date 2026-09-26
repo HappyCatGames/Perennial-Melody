@@ -9,11 +9,15 @@ init python:
     style.credits_hyperlink.color = "#c3e9fb"
     style.credits_hyperlink.hover_color = "#766ad3"
 
-    def credits_hyperlink_styler(target):
-        return style.credits_hyperlink
+    sources = ["envato", "pexels", "unsplash", "openclipart", "sketchfab", "free3d", "freesound"]
+    def custom_hyperlink_styler(target):
+        if "envato" in target or "pexels" in target or "unsplash" in target or "openclipart" in target or "sketchfab" in target or "free3d" in target or "freesound" in target or "creativecommons" in target:
+            return style.credits_hyperlink
+        else:
+            return style.hyperlink_text
 
     style.default.hyperlink_functions = (
-        credits_hyperlink_styler,
+        custom_hyperlink_styler,
         style.default.hyperlink_functions[1],
         style.default.hyperlink_functions[2]
     )
@@ -111,7 +115,7 @@ screen credits_3():
             • {a=https://elements.envato.com/bass-groove-revival-VP6HDFB}"Bass Groove Revival"{/a} by {a=https://elements.envato.com/user/StudioEtude}StudioEtude{/a}. Licensed under the {a=https://elements.envato.com/license-terms}Envato Elements Commercial License{/a}
             • {a=https://elements.envato.com/wistful-reflections-a-nostalgic-MVTSCUN}"Wistful Reflections A Nostalgic"{/a} by {a=https://elements.envato.com/user/Awesome_Music}Awesome_Music{/a}. Modifications: Compression, filters. Licensed under the {a=https://elements.envato.com/license-terms}Envato Elements Commercial License{/a}
             • {a=https://freesound.org/s/391350/}Flipping Pages{/a} by {a=https://freesound.org/people/VithorMoraes/}VithorMoraes{/a} is in the {a=https://wiki.creativecommons.org/Public_domain}Public Domain, CC0{/a}
-            • {a=https://freesound.org/s/399080/}Clay Pottery Drop 'n' Break{/a} by {a=https://freesound.org/people/Kinoton/}Kinoton{/a} is in the {a=https://wiki.creativecommons.org/Public_domain}Public Domain, CC0{/a}
+            • {a=https://freesound.org/s/399080/}{color=#c3e9fb}Clay Pottery Drop 'n' Break{/color}{/a} by {a=https://freesound.org/people/Kinoton/}Kinoton{/a} is in the {a=https://wiki.creativecommons.org/Public_domain}Public Domain, CC0{/a}
             """ ypos 50
 
 screen credits_4():
@@ -134,7 +138,7 @@ screen credits_4():
                 action OpenURL("https://nyangie.itch.io/")
                 xalign 0.5
                 ypos 25
-            text "{a=https://nyangie.itch.io/}@nyangie{/a}" xalign 0.5 size 20 ypos 35
+            text "{a=https://nyangie.itch.io/}{color=#c3e9fb}@nyangie{/color}{/a}" xalign 0.5 size 20 ypos 35
 
         vbox:
             label _("Coding and visuals") xalign 0.5
@@ -143,13 +147,13 @@ screen credits_4():
                 action OpenURL("https://curricle.itch.io/")
                 xalign 0.5
                 ypos 25
-            text "{a=https://curricle.itch.io/}@curricle{/a}" xalign 0.5 size 20 ypos 35
+            text "{a=https://curricle.itch.io/}{color=#c3e9fb}@curricle{/color}{/a}" xalign 0.5 size 20 ypos 35
 
     vbox:
         xalign 0.5
         ypos 525
         label _("Featuring") xalign 0.5
-        text "{a=https://twitter.com/catskid100}catskid100's{/a} OC, Natsume" xalign 0.5 size 20
+        text "{a=https://twitter.com/catskid100}{color=#c3e9fb}catskid100's{/color}{/a} OC, Natsume" xalign 0.5 size 20
 
     vbox:
         xalign 0.5
@@ -158,7 +162,7 @@ screen credits_4():
             idle "happycat_white_tsp.png" 
             action OpenURL("https://happycat-games.itch.io/")
 
-        text "Visit us on {a=https://happycat-games.itch.io/}itch.io!{/a}" xalign 0.5 ypos 25 size 24
+        text "Visit us on {a=https://happycat-games.itch.io/}{color=#c3e9fb}itch.io!{/color}{/a}" xalign 0.5 ypos 25 size 24
 
 
 style credits:
@@ -172,3 +176,7 @@ style credits_text:
     size 24
     line_spacing 10
     color gui.light_text_color
+
+style credits_text_hyperlink is hyperlink_text:
+    color "#c3e9fb"
+    hover_color "#766ad3"

@@ -6,6 +6,190 @@
         "**/cache/": true
     },
     "editor.tokenColorCustomizations": {
+        "[*Dark*][*Night*][*Abyss*][*Monokai*]": {
+            "textMateRules": [
+                {
+                    "scope": [
+                        "naniscript.comment"
+                    ],
+                    "settings": {
+                        "foreground": "#5d6470"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.label"
+                    ],
+                    "settings": {
+                        "foreground": "#9bc37c"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.command"
+                    ],
+                    "settings": {
+                        "foreground": "#6cb2ed"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.command.parameter.id"
+                    ],
+                    "settings": {
+                        "foreground": "#cd9769"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.command.parameter.value"
+                    ],
+                    "settings": {
+                        "foreground": "#e2be7f"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.generic-text"
+                    ],
+                    "settings": {
+                        "foreground": "#acb2be"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.author"
+                    ],
+                    "settings": {
+                        "foreground": "#e2be7f"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.expression"
+                    ],
+                    "settings": {
+                        "foreground": "#62b8c1"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.text-identifier"
+                    ],
+                    "settings": {
+                        "foreground": "#5d6470"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.tag"
+                    ],
+                    "settings": {
+                        "foreground": "#5d6470"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.select-option"
+                    ],
+                    "settings": {
+                        "foreground": "#acb2be"
+                    }
+                }
+            ]
+        },
+        "[*Light*][*Day*][*Bright*]": {
+            "textMateRules": [
+                {
+                    "scope": [
+                        "naniscript.comment"
+                    ],
+                    "settings": {
+                        "foreground": "#acb5c6"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.label"
+                    ],
+                    "settings": {
+                        "foreground": "#51a612"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.command"
+                    ],
+                    "settings": {
+                        "foreground": "#257dc8"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.command.parameter.id"
+                    ],
+                    "settings": {
+                        "foreground": "#c642a5"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.command.parameter.value"
+                    ],
+                    "settings": {
+                        "foreground": "#9250bf"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.generic-text"
+                    ],
+                    "settings": {
+                        "foreground": "#4b5871"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.author"
+                    ],
+                    "settings": {
+                        "foreground": "#9250bf"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.expression"
+                    ],
+                    "settings": {
+                        "foreground": "#3abfb3"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.text-identifier"
+                    ],
+                    "settings": {
+                        "foreground": "#acb5c6"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.tag"
+                    ],
+                    "settings": {
+                        "foreground": "#acb5c6"
+                    }
+                },
+                {
+                    "scope": [
+                        "naniscript.select-option"
+                    ],
+                    "settings": {
+                        "foreground": "#4b5871"
+                    }
+                }
+            ]
+        },
         "textMateRules": [
             {
                 "scope": "renpy.meta.plain",
@@ -128,6 +312,12 @@
                 "scope": "renpy.meta.color.#cfc",
                 "settings": {
                     "foreground": "#cfc"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#c3e9fb",
+                "settings": {
+                    "foreground": "#c3e9fb"
                 }
             }
         ]

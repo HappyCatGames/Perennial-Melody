@@ -47,23 +47,17 @@ screen game_menu(title):
             action ShowMenu("preferences") 
             hovered Play('sound', randomizeAudio())
 
-        if main_menu and persistent.hasCompletedARoute:
-            textbutton _('Journal').upper():
-                background Frame(button_bg_list[0][0])
-                hover_background Frame("button_hover_bg")
-                action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
-                hovered Play('sound', randomizeAudio())
-        elif not main_menu:
+        if not main_menu:
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
                 hover_background Frame("button_hover_bg")
                 action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
                 hovered Play('sound', randomizeAudio())
         if main_menu:
-            textbutton _('Achievements').upper(): 
-                background Frame(button_bg_list[1][0])
+            textbutton _('Extras').upper():
+                background Frame(button_bg_list[0][0])
                 hover_background Frame("button_hover_bg")
-                action ShowMenu("achievement_gallery")
+                action ShowMenu("extras")
                 hovered Play('sound', randomizeAudio())
 
         if _in_replay:
@@ -164,7 +158,7 @@ style game_menu_button:
     hover_background Frame("button_hover_bg")
 
 style game_menu_button_text:
-    idle_color '#fff'
+    idle_color '#f9f3ea'
     size 26
     xalign 0.5
 
