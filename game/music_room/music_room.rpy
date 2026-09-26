@@ -34,46 +34,46 @@ init python:
     ## This sets up a default art image for all tracks in this room which aren't
     ## given a more specific one. This default art is 600x600, but several
     ## layouts resize it. It should typically be square.
-    music_room.default_art = "gui/music_room/cover_art.webp"
+    music_room.default_art = "gui/window_icon.png"
 
     music_room.add(
         name=_("Ambient Lo-Fi"),
-        artist="Red Robotix",
+        artist="Cozy_Vibes",
         path="audio/Ambient Lo-Fi.wav",
     )
     music_room.add(
         name=_("Bass Groove Revival"),
-        artist="Tobi Weiss",
+        artist="StudioEtude",
         path="audio/Bass Groove Revival.wav",
     )
     music_room.add(
         name=_("ChildHood Memories"),
-        artist="Tobi Weiss",
+        artist="Adigold",
         path="audio/ChildHood Memories.wav",
     )
     music_room.add(
         name=_("News"),
-        artist="Tobi Weiss",
+        artist="elite_music",
         path="audio/News.wav",
     )
     music_room.add(
         name=_("Sadness"),
-        artist="Tobi Weiss",
+        artist="dimadjdocent",
         path="audio/Sadness.wav",
     )
     music_room.add(
-        name=_("Tech Ambient"),
-        artist="Tobi Weiss",
+        name=_("Technology Corporate Ambient Background"),
+        artist="matsteiner",
         path="audio/Tech Ambient.wav",
     )
     music_room.add(
         name=_("The Future Bass"),
-        artist="Tobi Weiss",
+        artist="LukePN",
         path="audio/The Future Bass.wav",
     )
     music_room.add(
-        name=_("Wistful Reflections (Distorted)"),
-        artist="Tobi Weiss",
+        name=_("Wistful Reflections A Nostalgic (Distorted)"),
+        artist="Awesome_Music",
         path="audio/Wistful Reflections Distorted.wav",
     )
 ################################################################################
@@ -92,10 +92,10 @@ define myconfig.UNLOCK_TRACKS_FOR_DEVELOPMENT = False
 ## to colorize the default music controls. You can change these if you want to
 ## use the provided images, or simply supply your own and remove the lines
 ## `at colorize_button` from the screen below.
-define MUSIC_ROOM_IDLE_COLOR = "#ff8335"
-define MUSIC_ROOM_HOVER_COLOR = "#f93c3e"
-define MUSIC_ROOM_SELECTED_IDLE_COLOR = "#ff8335"
-define MUSIC_ROOM_SELECTED_HOVER_COLOR = "#f93c3e"
+define MUSIC_ROOM_IDLE_COLOR = "#000"
+define MUSIC_ROOM_HOVER_COLOR = "#412f90"
+define MUSIC_ROOM_SELECTED_IDLE_COLOR = "#000"
+define MUSIC_ROOM_SELECTED_HOVER_COLOR = "#412f90"
 define MUSIC_ROOM_INSENSITIVE_COLOR = "#888"
 
 ## Here are the default buttons used for the music controls below. You can
@@ -115,7 +115,7 @@ image forward_10_button = "gui/music_room/forward_10.webp"
 ## playing song. There are four bars that randomly change height.
 define AUDIO_BAR_HEIGHT = 30
 define AUDIO_BAR_WIDTH = 8
-image audio_bar = Transform(MUSIC_ROOM_HOVER_COLOR,
+image audio_bar = Transform("#000",
     xysize=(AUDIO_BAR_WIDTH, AUDIO_BAR_HEIGHT))
 transform audio_bar_move():
     yzoom renpy.random.random() ## Start at a random height
@@ -185,7 +185,6 @@ style track_list_vbox:
     spacing 0
 style track_list_button:
     right_padding 45
-    background Transform("#ff8335", ysize=2, yalign=1.0)
     hover_foreground "#fff1"
     ypadding 15 xfill True
 style track_list_hbox:
@@ -198,7 +197,7 @@ style track_list_text:
 style track_list_label:
     background None padding (2, 0)
 style track_list_label_text:
-    color "#000" hover_color "#f93c3e" selected_color "#666"
+    color "#000" hover_color "#412f90" selected_color "#412f90"
     insensitive_color "#666"
 style track_list_vscrollbar:
     thumb "#000" base_bar "#292835"
@@ -247,6 +246,7 @@ screen music_room3(mr):
                 ## tracks.
                 for num, song in enumerate(mr.get_tracklist(all_tracks=True)):
                     button:
+                        hover_background Frame("button_hover_bg", 150, 150)
                         action mr.Play(song.path)
                         has hbox
                         fixed:
@@ -258,13 +258,14 @@ screen music_room3(mr):
                             else:
                                 ## The track number. +1 is because enumerate starts
                                 ## at 0 instead of 1.
-                                text str(num+1) align (0.5, 0.55)
-                        add song.art ysize 100 fit "contain"
+                                text str(num+1) align (0.5, 0.55) font gui.label_text_font
+                        ## add song.art ysize 100 fit "contain"
                         vbox:
-                            spacing 4
+                            spacing 0
                             ## Track info
                             label song.name
                             text song.artist
+                    add Transform("#000", ysize=2, yalign=1.0)
 
         ## This holds the album art, song title, artist, music bar, and music
         ## controls. You may adjust this however you wish! The important part
@@ -274,15 +275,11 @@ screen music_room3(mr):
             style_prefix 'musicroom3'
             has hbox
             xalign 0.5 yalign 0.5
-            if current_track:
-                add current_track.art ysize 150 fit "contain"
-            else:
-                add mr.default_art ysize 150 fit "contain"
             vbox:
-                xsize 250
+                xsize 350
                 if current_track:
-                    text current_track.name
-                    text current_track.artist color "#bfbfb9"
+                    text current_track.name font gui.label_text_font size 36 line_spacing -8
+                    text current_track.artist color "#555"
                 else:
                     text _("No song playing")
 
@@ -333,23 +330,18 @@ screen music_room3(mr):
                         add mr.get_duration(style="music_room_duration")
 
             add "gui/music_room/volume.webp" zoom 0.45 yalign 0.5:
-                matrixcolor ColorizeMatrix(MUSIC_ROOM_HOVER_COLOR, "#fff")
+                matrixcolor ColorizeMatrix(MUSIC_ROOM_IDLE_COLOR, "#fff")
 
             bar value MixerValue(mr.channel) xysize (150, 25):
-                xalign 0.5 right_bar "#21212d" thumb None yalign 0.5
-                left_bar "#fc5f39"
+                xalign 0.5 right_bar "#cfccc8" thumb None yalign 0.5
+                left_bar "#000"
 
 style musicroom3_frame:
     yalign 1.0 xalign 0.5 xfill True ysize 200
-    background Frame(
-        Fixed(
-            Transform("#f93c3e", xysize=(100, 100)),
-            Transform("#292835", xysize=(90, 90), align=(0.5, 0.5)),
-            xysize=(100, 100)
-        ), 10, 10
-    )
+    background Frame("gui/btn_box_idle.png", Borders(40, 40, 40, 40))
+    margin (7, 10, 15, 7)
 style music_room_text:
-    color "#fff"
+    color "#000"
     xalign 0.5
 style music_room_title:
     background None xalign 0.5 bottom_padding 15
@@ -363,19 +355,19 @@ style musicroom3_image_button:
 style musicroom3_bar:
     ysize 25 xsize 480
     yalign 0.5
-    right_bar "#21212d" thumb None
-    left_bar "#fc5f39"
+    right_bar "#cfccc8" thumb None
+    left_bar "#000"
 style musicroom3_text:
-    yalign 0.5 size 25 color "#f7f7ed"
+    yalign 0.5 size 25 color "#000"
 style musicroom3_vbox:
     yalign 0.5
 style music_room_image_button:
     align (0.5, 0.5)
 style music_room_bar:
     xsize 700 xalign 0.5 ysize 38
-    right_bar "#21212d"
-    left_bar "#fc5f39"
+    right_bar "#cfccc8"
+    left_bar "#000"
 style music_room_pos:
-    color "#fff" xalign 0.5 adjust_spacing False
+    color "#000" xalign 0.5 adjust_spacing False
 style music_room_duration:
-    color "#fff" xalign 0.5 adjust_spacing False
+    color "#000" xalign 0.5 adjust_spacing False

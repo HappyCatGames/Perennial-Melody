@@ -47,13 +47,7 @@ screen game_menu(title):
             action ShowMenu("preferences") 
             hovered Play('sound', randomizeAudio())
 
-        if main_menu and persistent.hasCompletedARoute:
-            textbutton _('Journal').upper():
-                background Frame(button_bg_list[0][0])
-                hover_background Frame("button_hover_bg")
-                action [ShowMenu("journal", 1), Function(open_journal_achievement.grant)]
-                hovered Play('sound', randomizeAudio())
-        elif not main_menu:
+        if not main_menu:
             textbutton _('Journal').upper():
                 background Frame(button_bg_list[0][0])
                 hover_background Frame("button_hover_bg")
