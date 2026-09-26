@@ -158,7 +158,7 @@ style game_menu_button:
     hover_background Frame("button_hover_bg")
 
 style game_menu_button_text:
-    idle_color '#fff'
+    idle_color '#f9f3ea'
     size 26
     xalign 0.5
 

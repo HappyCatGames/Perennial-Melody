@@ -230,7 +230,6 @@ screen music_room3(mr):
         yfill True
         xsize config.screen_width-420
         align (1.0, 0.5)
-        label _("Track List") style "music_room_title" yoffset 75
     ##
     ############################################################################
 
@@ -266,6 +265,8 @@ screen music_room3(mr):
                             label song.name
                             text song.artist
                     add Transform("#000", ysize=2, yalign=1.0)
+
+        label _("Track List") style "music_room_title" ypos 140 background Frame("gui/namebox.png", 20, 20, 20, 40) text_color "#f9f3ea" padding (60, 5, 60, 50) xsize 500
 
         ## This holds the album art, song title, artist, music bar, and music
         ## controls. You may adjust this however you wish! The important part
