@@ -190,6 +190,7 @@ label start:
             scene bg bed dark with fade
             play music "audio/News.wav"
 
+            "Hi."
             "You hate music. You said that with your whole heart, hands curled into tiny fists." with moveinbottom
             "It's a shame that you work in the music industry now, a shitty cog in a shitty machine. It's fine, it's just a first step toward a fulfilling and stable job career."
             "Your boss was general counsel for the biggest entertainment company to come out of Japan." 
@@ -648,7 +649,7 @@ label start:
             hide natsume
 
             "That's Setsugekka's invincible pianist for you."
-            
+
             scene black with Fade(0.2, 0.5, 0.2)
 
             $ plant_1.isActive = False
