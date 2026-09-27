@@ -1,3 +1,12 @@
+image return_hover_bg:
+    Image("gui/button/return_btn_hover_01.png")
+    pause .3
+    Image("gui/button/return_btn_hover_02.png")
+    pause .3
+    Image("gui/button/return_btn_hover_03.png")
+    pause .3
+    repeat
+
 ## Game Menu screen ############################################################
 ##
 ## This lays out the basic common structure of a game menu screen. It's called
@@ -109,8 +118,10 @@ screen game_menu(title):
                 action Quit(confirm=not main_menu) 
                 hovered Play('sound', randomizeAudio())
     
-    imagebutton auto "gui/button/mm_return_%s.png":
+    textbutton _("Return").upper():
         style "return_button"
+        background Frame("gui/button/return_btn_idle.png", 6, 6)
+        hover_background Frame("return_hover_bg")
         hovered Play('sound', randomizeAudio())
         action Return()
 
@@ -126,6 +137,13 @@ style return_button:
     xpos 45
     yalign 1.0
     yoffset -45
+    xsize 270
+    padding (10, 10)
+
+style return_button_text:
+    xalign 0.5
+    color "#000"
+    size 26
 
 style game_menu_viewport:
     xsize config.screen_width-500
