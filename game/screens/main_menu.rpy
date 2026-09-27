@@ -34,7 +34,7 @@ screen main_menu():
 
     vbox:
         xsize 763
-        yoffset 375
+        yoffset 380
         spacing 25
 
         textbutton _('Start').upper() background Frame("gui/button/mm_btn_01.png") hover_background Frame("mm_btn_hover_bg") action Start() hovered Play('sound', randomizeAudio()) xalign 0.5 xsize 456

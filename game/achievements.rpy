@@ -108,7 +108,7 @@ define open_journal_achievement = Achievement(
     name=_("Goin' Postal"),
     id="journal",
     description=_("Open your journal"),
-    unlocked_image="gui/window_icon.png",
+    unlocked_image="achievements/journal.png",
     locked_image="locked_achievement",
     hide_description=True
 )
@@ -116,7 +116,7 @@ define interact_all_objects_achievement = Achievement(
     name=_("Does it spark joy?"),
     id="meticulous_achievement",
     description=_("Interact with every item in your room."),
-    unlocked_image=Transform("gui/window_icon.png", matrixcolor=InvertMatrix()),
+    unlocked_image=Transform("achievements/all_objects.png"),
     show_progress_bar=True,
     stat_max=16,
 )
@@ -124,7 +124,7 @@ define end_a_achievement = Achievement(
     name=_("thanks for the memories"),
     id="end_a",
     description=_("Get ending A."),
-    unlocked_image="gui/window_icon.png",
+    unlocked_image="achievements/end_a.png",
     locked_image="locked_achievement",
     hide_name=False,
     hide_description=True,
@@ -174,7 +174,7 @@ define -2 all_achievements = Achievement(
     name=_("Perennial Melody"),
     id="platinum_achievement",
     description=_("{i}I want to be dyed in your sound.{/i} You unlocked every achievement!"),
-    unlocked_image=Transform("gui/window_icon.png", matrixcolor=BrightnessMatrix(1.0)),
+    unlocked_image=Transform("achievements/platinum.png"),
     hide_description=_("Get all other achievements."),
 )
 
