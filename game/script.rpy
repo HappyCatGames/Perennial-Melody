@@ -648,7 +648,7 @@ label start:
             hide natsume
 
             "That's Setsugekka's invincible pianist for you."
-            
+
             scene black with Fade(0.2, 0.5, 0.2)
 
             $ plant_1.isActive = False
