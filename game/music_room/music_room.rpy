@@ -226,6 +226,7 @@ screen music_room3(mr):
     ## you can use this:
     ##
     use game_menu(_("Music Room"))
+
     fixed:
         yfill True
         xsize config.screen_width-420
@@ -372,3 +373,5 @@ style music_room_pos:
     color "#000" xalign 0.5 adjust_spacing False
 style music_room_duration:
     color "#000" xalign 0.5 adjust_spacing False
+style track_list_fixed:
+    background Frame("gui/hover_background.png", 6, 6)

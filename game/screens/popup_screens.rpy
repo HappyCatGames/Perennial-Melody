@@ -1,3 +1,12 @@
+image confirm_hover_bg:
+    Image("gui/button/yn_hover_1.png")
+    pause .3
+    Image("gui/button/yn_hover_2.png")
+    pause .3
+    Image("gui/button/yn_hover_3.png")
+    pause .3
+    repeat
+
 
 ## Confirm screen ##############################################################
 ##
@@ -30,10 +39,18 @@ screen confirm(message, yes_action, no_action=None):
         hbox:
             xalign 0.5
             spacing 50
-            imagebutton auto "gui/button/yes_%s.png" action yes_action hovered Play('sound', randomizeAudio())
+            textbutton _("Yes").upper():
+                action yes_action 
+                background Frame("gui/button/yn_01.png")
+                hover_background Frame("confirm_hover_bg")
+                hovered Play('sound', randomizeAudio())
             # Modified so you can just have a confirmation prompt
             if no_action is not None:
-                imagebutton auto "gui/button/no_%s.png" action no_action hovered Play('sound', randomizeAudio())
+                textbutton _("No").upper(): 
+                    action no_action 
+                    background Frame("gui/button/yn_02.png")
+                    hover_background Frame("confirm_hover_bg")
+                    hovered Play('sound', randomizeAudio())
 
     ## Right-click and escape answer "no".
     if no_action is not None:
@@ -65,9 +82,14 @@ style confirm_hbox:
 
 style confirm_button:
     xalign 0.5
+    padding (40, 15)
+    margin (0, 0, 0, 15)
 
 style confirm_button_text:
     textalign 0.5
+    color "#fff"
+    yoffset -2
+    hover_color "#000"
 
 
 ## Skip indicator screen #######################################################
