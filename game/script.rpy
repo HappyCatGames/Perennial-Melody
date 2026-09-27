@@ -262,7 +262,7 @@ label start:
 
             "You haven't thought about Hisae Shimozaki like that for a long time."
 
-            "It's usually the annoying and grating laugh or the bone white bass." 
+            "It's usually the annoying and grating laugh or the bone-white bass." 
 
             "You sit straight up on your office chair and stretch your arms out."
 
@@ -541,7 +541,7 @@ label start:
 
         if bed.currentIterationCount == 2:
             "It's your bed." 
-            "There's the fitted sheet, the flat sheet, both matching and a boring shade of gray. There's a comfortable warm blanket, microfiber. You got it from C*ostco. Your comforter. It's from Muji. It's a nice set piece." 
+            "There's the fitted sheet, the flat sheet, both matching and a boring shade of gray. There's a comfortable warm blanket, microfiber. You got it from C*ostco. Your comforter. It's from M*uji. It's a nice set piece." 
             "It goes well with the perfect number of pillows (two) and the perfect amount of space (a little more than no space). You always make your bed before you head out for the day. It's important!" 
             "It keeps you from crawling back in after a particularly bad day at the studio."
 
@@ -991,7 +991,7 @@ label start:
         
 
         if camellia.currentIterationCount == 1:
-            "A winter flower. You don't like it very much. It's a deep red."
+            "A winter flower. Camellia. You don't like it very much. It's a deep red."
             
         if camellia.currentIterationCount == 2:
             "A winter flower." 
