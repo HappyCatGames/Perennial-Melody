@@ -74,7 +74,7 @@ screen file_slots(title):
 
                     ## https://www.fabriziomusacchio.com/blog/2021-08-15-strftime_Cheat_Sheet/
                     text FileTime(slot,
-                            format=_("{#file_time}%A, %B %d %Y, %H:%M"),
+                            format=_("{#file_time}%B %d %Y, %H:%M \n%A"),
                             empty=_("empty slot")):
                         style "slot_time_text"
 
@@ -152,6 +152,8 @@ style slot_grid:
 style slot_time_text:
     size 21
     xalign 0.5
+    textalign 0.5
+    yoffset -3
 
 style slot_vbox:
     spacing 12
