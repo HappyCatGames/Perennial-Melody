@@ -38,8 +38,10 @@ screen extras():
                 action ShowMenu("achievement_gallery")
                 hovered Play('sound', randomizeAudio())
     
-    imagebutton auto "gui/button/mm_return_%s.png":
+    textbutton _("Return").upper():
         style "return_button"
+        background Frame("gui/button/return_btn_idle.png", 6, 6)
+        hover_background Frame("return_hover_bg")
         hovered Play('sound', randomizeAudio())
         action Return()
 
